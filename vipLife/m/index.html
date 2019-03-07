@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>    
+<html>
+<head>
+<meta charset="utf-8" />
+<!-- <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+<meta name="viewport" content="width=750,user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content=""/>
+<title>VIP生活特权</title>
+<link rel="stylesheet" type="text/css" href="style/master.css" />
+</head>
+<body style="background-color: #e6e8eb;">
+	<!-- top_bar -->
+	<div class="box_justify top_bar">
+		<div class="logo">
+			<span><img src="images/logo_wm.png" class="logo_wm" /></span>
+			<img src="images/logo_vip.png" class="logo_vip" />
+		</div>
+		<div class="login">
+			<div class="before"><img src="images/login.png" /></div>
+			<div class="after">欢迎您！<span class="name">yuhongwei</span>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);">退 出</a></div>
+		</div>
+	</div>
+	<div class="top_bar_height"></div>
+
+	<!-- index_header -->
+	<div class="index_header">
+		<p class="btns">
+			<a href="buy.html" class="btn1">购买观影券码</a>
+			<a href="http://vip.wanmei.com/unvip_introduction.html" class="btn2">升级VIP</a>
+		</p>
+	</div>
+
+	<!-- 参与本次活动的热门电影 -->
+	<div class="hot_list">
+		<h1 class="title">参与本次活动的热门电影</h1>
+	</div>
+
+	<!-- index_bottom -->
+	<div class="box_justify index_bottom">
+		<a href="javascript:void(0);" class="btn1">首页</a>
+		<a href="order.html" class="btn2">我的订单</a>
+	</div>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/jq_183.js"></script>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/wm.js" top="0" bottom="0"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//登录
+			$('.top_bar .before').on('click',function(){
+				login();
+			});
+
+			//退出
+			$('.top_bar .after a').on('click',function(){
+				loginOut();
+			});
+
+			//我的订单
+			$('.index_bottom a.btn2').on('click',function(){
+				if(!isLogin){
+					login();
+					return false;
+				}
+			});
+
+			//购买观影券码
+			$('.index_header .btns a.btn1').on('click',function(){
+				if(!isLogin){
+					login();
+					return false;
+				}
+			});
+
+			//热门电影
+			var hotVideo = '';
+			$.ajax({
+				url:baseUrl + "activity/movie/get",
+				type:"POST",
+				success:function(data){
+					if(data.code==0){
+						for(var i=0; i< data.result.length; i++){
+							hotVideo += '<div class="cf list">';
+							hotVideo += '	<a href="article.html?id='+data.result[i].id+'" target="_blank"><img src="'+JSON.parse(data.result[i].poster)[0]+'" class="f_left video_pic" /></a>';
+							hotVideo += '	<div class="f_left info">';
+							hotVideo += '		<h2 class="name">'+data.result[i].name+'</h2>';
+							hotVideo += '		<p class="stars s3"></p>';
+							hotVideo += '		<a href="article.html?id='+data.result[i].id+'" class="see_info">查看电影详情</a>';
+							hotVideo += '	</div>';
+							hotVideo += '	<div class="f_right num">';
+							hotVideo += '		评分：<i><span>'+data.result[i].grade/10+'</span>分</i>';
+							hotVideo += '	</div>';
+							hotVideo += '</div>';
+						}
+						$('.hot_list').append(hotVideo);
+					}else{
+						alert(data.message);
+					}
+				}
+			});	
+		});
+	</script>
+</body>
+</html>

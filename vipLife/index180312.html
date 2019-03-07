@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>VIP生活特权</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css">
+<link rel="stylesheet" type="text/css" href="style/main.css">
+<script type="text/javascript" src="http://www.wanmei.com/public/js/wm.js" top="false" bottom="false"></script>
+</head>
+<body>
+
+
+<div class="container">
+	<div class="header">
+    	<div class="wrap1300">
+        	<div class="btn_items">
+            	<a class="buy" href="javascript:;">购买观影券码</a>
+            	<a class="upgrade" href="http://vip.wanmei.com/unvip_introduction.html" target="_blank">升级VIP</a>
+            </div>
+        </div>
+    </div>
+    <div class="hot-movies">
+    	<div class="wrap1300">
+        	<div class="tit"><img src="images/tit1.png" /></div>
+            <div class="slides_pic" id="indexMovies">
+            	<a class="prev" href="javascript:;"></a>
+            	<a class="next" href="javascript:;"></a>
+                <div class="bd">
+                    <ul class="clearfix">
+                        <!--<li>
+                        	<div class="movies-img"><a href="" target="_blank"><img src="images/img1.jpg" /></a></div>
+                            <div class="movies-name">英伦对决1</div>
+                        	<div class="movies-score">
+                            	<span class="star">
+                                	<span class="on"></span>
+                                	<span class="on"></span>
+                                	<span class="on"></span>
+                                	<span class="half"></span>
+                                	<span></span>
+                                </span>
+                                <span class="score">7.2分</span>
+                            </div>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bot_nav">
+        <ul>
+            <li><a href="http://vip.wanmei.com/" target="_blank"><i class="icon1"></i>VIP首页</a></li>
+            <li><a href="http://vip.wanmei.com/activitylist.html" target="_blank"><i class="icon2"></i>游戏特权</a></li>
+            <li><a href="http://vip.wanmei.com/service.html" target="_blank"><i class="icon3"></i>服务特权</a></li>
+            <li><a href="http://vip.wanmei.com/news/index.html" target="_blank"><i class="icon4"></i>新 闻</a></li>
+            <li><a href="http://vip.wanmei.com/unvip.html" target="_blank"><i class="icon5"></i>VIP体系介绍</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="http://www.wanmei.com/public/js/jq_171.js"></script>
+<script type="text/javascript" src="http://static.games.wanmei.com/public/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" src="js/public_top.js"></script>
+<script type="text/javascript" src="http://vip.wanmei.com/js/footer.js"></script>
+<script type="text/javascript" src="http://static.games.wanmei.com/public/js/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="js/library180312.js?4"></script>
+<script>
+$(function(){	
+	var indexMovies = new HotMovies($('#indexMovies'));
+	if(getParams('top')){
+		$('html,body').animate({scrollTop:getParams('top') + 'px'},0);
+	}
+	checkLoginStatus();
+})
+</script>
+</body>
+</html>

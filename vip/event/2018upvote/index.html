@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=1080, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <link rel="stylesheet" type="text/css" href="http://vip.wanmei.com/event/2018upvote/style/master.css">
+    <title>收祝福赢红包 鑫仔世界客户服务送福利啦</title>
+</head>
+<body>
+   <div class="festival">
+       <div class="top">
+           <div class="blessings">
+               谨以此视频，诚挚地祝愿广大玩家朋友们：<br>
+               祝大家在新的一年里，新春快乐，阖家团圆！<br>
+               <span>鑫仔世界客户服务</span>
+           </div>
+       </div>
+       <div class="video">
+           <div class="video-box">
+               <video src="http://media.dl.wanmei.com/media/media/2018upvote.mp4" controls="controls" style="width:994px; height:558px;" id="myvideo" webkit-playsinline="true" x-webkit-airplay="true" playsinline="true"  x5-playsinline="true">
+              </video>
+           </div>
+           <p>PS:此视频制作精良建议在WIFI环境下观看</p>
+           <a href="javascript:void(0);" class="btnPlay" id="btnPlay" style="display:none;"></a>
+       </div>
+       <div class="praise">
+         <dl class="cl">
+           <dt>
+             <span class="p-icon"></span>
+             点赞
+           </dt>
+           <dd class="bar-box">
+              <div class="bar-wrap">
+                <span class="bar-footer"></span>
+                <span class="bar"><span class="bar-head"></span></span>
+              </div>
+              <div class="full">
+                <img src="images/burst.png" alt="">
+              </div>
+           </dd>
+           <dd class="number">
+             <span class="numb">0</span> <span class="tag">人<br>点赞</span>  
+           </dd>
+         </dl>
+       </div>
+       <div class="explain">
+          <h3 class="h-title">奖励说明</h3>
+          <div class="explain-box">
+            <p>
+              红包内容：15元鑫仔一卡通;<br>
+              红包数量：0~1000人点赞设置100份奖励；1001~1500人点赞，设置200份奖励；1501~以上，设置300份奖励;
+            </p>
+            <p>
+              奖励抽取：奖励将在活动结束后进行抽选；
+            </p>
+            <p>
+              奖励发放：奖励会以短信的形式发放至您点赞后输入的手机号码，请您务必保证填写正确。所有奖励将会在活动结束后一个工作日内发放完毕。
+            </p>
+            <p>
+              活动时间：2月11日11点至2月13日12点；
+            </p>
+            <p>
+              每个微信号仅有1次抽奖机会；
+            </p>
+            <p>
+              登录后点赞并输入有效手机号码后即成功参与活动；
+            </p>
+            <p>
+              活动结束后，将根据点赞人数配置中奖手机号码（规则见奖励说明）；
+            </p>
+            <p>
+              中奖信息将在活动结束后（2月13日）在vip官网新闻区&客服中心官网公告区进行公布。
+            </p>
+          </div>
+       </div>
+       <div class="wxin">
+         <p>识别下方二维码<br>关注鑫仔世界客户服务</p>
+         <div class="wxin-code">
+           <span>
+             <img src="images/wxin.png" alt=""><br>
+             <b>更多精彩资讯&活动<br>等你哟~~~</b><br>
+           </span>
+         </div>
+       </div>
+   </div>
+   <div class="pop mess-pop" style="display:none">
+     <div class="pop-box">
+       <a href="javascript:void(0);" class="btnClose"></a>
+       <div class="title">
+         <h3>感谢您的鼓励！<br><b>请留下手机号参与抽奖吧！</b></h3>
+       </div>
+       <div class="input-wrap">
+         手机号：<input type="text" name="tele" class="tele">
+       </div>
+       <a href="javascript:void(0);" class="commbtn btnsubmit">提交</a>
+     </div>
+   </div>
+   <!--成功-->
+   <div class="pop suce-pop" style="display:none">
+     <div class="pop-box">
+       <a href="javascript:void(0);" class="btnClose"></a>
+       <div class="title">
+         <h3>记录成功！<br><b>分享给好友一起来抽奖吧！</b></h3>
+       </div>
+       <div class="btns">
+        <a href="javascript:void(0);" class="commbtn btnshare">分享</a>
+        <a href="javascript:void(0);" class="commbtn btnDel">取消</a>
+      </div>
+     </div>
+   </div>
+
+   <div class="pop share-pop" style="display:none;">
+     <img src="images/share.png" alt="" class="share">
+   </div>
+   <script type="text/javascript" src="http://vip.wanmei.com/event/2018upvote/js/jquery-2.2.1.min.js"></script>
+   <script type="text/javascript">
+   
+   var shareUrl='http://event.wanmei.com/vip/luckymoney/shareCount';
+   $(function(){
+      function isMobile(phone) {
+        return /^(\d{2,5}-\d{7,8}(-\d{1,})?)|(13\d{9})|(15\d{9})|(18\d{9})|(14\d{9})|(17\d{9})$/.test(phone);
+      }
+      
+      //页面初始化
+      var getUrl='http://event.wanmei.com';
+      var url=getUrl+'/vip/luckymoney/init';
+      $.ajax({
+          url:url,
+          type:'get',
+          dataType:'jsonp',
+          success:function(data){
+           if(data.success){
+              // console.log(data);
+              // console.log(0);
+              //投票人数
+              if(data.bal_count>9999){
+                $('.full').show();
+                $('.bar-wrap').hide();
+                data.bal_count=9999;
+              }
+              $('.numb').html(data.bal_count);
+              var barWidth=((data.bal_count/10000)*100);
+              $('.bar-wrap .bar').css('width',barWidth+'%');
+              //alert(data.bal_status);
+              if(data.bal_status=='0' ||data.bal_status==0){
+                $('.praise .p-icon').on('click',function(){
+                  $('.pop').hide();
+                  $('.mess-pop').show();
+                });
+              }
+              if(data.bal_status==1 || data.bal_status=='1'){
+                $('.praise .p-icon').on('click',function(){
+                  alert('已投票');
+                  return false;
+                });
+              }
+           }
+          },
+          error:function(data){
+            alert('过年网络太忙了，请您稍后！');
+          }
+      });
+      
+      //点赞
+      var voteurl=getUrl+'/vip/luckymoney/ballot';
+      $('.btnsubmit').click(function(){
+          var tele=$('.tele').val();
+          var count=parseInt($('.number .numb').html());
+          if(tele!=''){
+            if(!isMobile($.trim(tele))){
+              alert('手机格式不正确');
+              return false;
+            }
+          }else{
+            alert('手机号码不能为空');
+            return false;
+          }
+          $.ajax({
+            url:voteurl,
+            type:'get',
+            dataType:'jsonp',
+            data:{phone:tele},
+            success:function(data){
+              if(data.success){
+                count=count+1;
+                if(count>9999){
+                  $('.full').show();
+                  $('.bar-wrap').hide();
+                  count=9999;
+                }
+                $('.numb').html(count);
+                $('.pop').hide();
+                $('.suce-pop').show();
+              }else{
+                alert(data.message);
+                return false;
+              }
+            },
+            error:function(data){
+              alert('过年网络太忙了，请您稍后！');
+            }
+        });
+      });
+
+      //分享
+      $('.btnshare').click(function(){
+        $('.pop').hide();
+        $('.share-pop').show();
+      });
+      //关闭
+      $('.btnClose').click(function(){
+        $(this).closest('.pop').hide();
+      });
+      //取消
+      $('.btnDel').click(function(){
+        $(this).closest('.pop').hide();
+      });
+
+      $('.share-pop').click(function(){
+        $(this).hide();
+      });
+   });
+   </script>
+   <script type="text/javascript" src="http://www.wanmei.com/public/js/weixin.js"></script>
+   <script type="text/javascript">
+    wx.ready(function(){
+    
+    wx.onMenuShareAppMessage({
+      title: '收祝福赢好运 鑫仔世界客户服务送好运啦',
+      desc: '',
+      link: 'http://weixin.cs.wanmei.com/wx/oauth2/authorize.html?i=1312443075184&target=kefu1802061517452593706',
+      imgUrl: 'http://vip.wanmei.com/event/2018upvote/images/thumb.jpg',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('用户点击发送给朋友');
+      },
+      success: function (res) {
+        $.ajax({
+          url:shareUrl,
+          type:'get',
+          dataType:'jsonp',
+          success:function(data){
+            if(data.status==0 || data.status=='0'){
+                return data.message;
+            }
+          }
+        });
+      },
+      cancel: function (res) {
+        //alert('已取消');
+      },
+      fail: function (res) {
+        //alert(JSON.stringify(res));
+      }
+    });
+    
+    wx.onMenuShareTimeline({
+      title: '收祝福赢好运 鑫仔世界客户服务送好运啦',
+                link: 'http://weixin.cs.wanmei.com/wx/oauth2/authorize.html?i=1312443075184&target=kefu1802061517452593706',
+                imgUrl: 'http://vip.wanmei.com/event/2018upvote/images/thumb.jpg',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('用户点击分享到朋友圈');
+      },
+      success: function (res) {
+        $.ajax({
+          url:shareUrl,
+          type:'get',
+          dataType:'jsonp',
+          success:function(data){
+            if(data.status==0 || data.status=='0'){
+                return data.message;
+            }
+          }
+        });
+      },
+      cancel: function (res) {
+        //alert('已取消');
+      },
+      fail: function (res) {
+        //alert(JSON.stringify(res));
+      }
+    });
+  });
+   </script>
+</body>
+</html>

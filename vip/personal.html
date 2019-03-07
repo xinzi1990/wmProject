@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>鑫仔世界VIP官网</title>
+
+<link rel="stylesheet" type="text/css" href="style/reset.css">
+<link rel="stylesheet" type="text/css" href="style/main.css">
+</head>
+<body>
+<div class="vip_personal">
+	<div class="vip_service_top">
+        <div class="vip_service_top_content wrap950">
+            <input type="hidden" value="21" id="searchGameType" name="searchGameType">
+            <span id="servicetype">个人中心</span>
+            <div id="selflist" class="selflist" style="display: inline;">自助专区</div>
+        </div>
+    </div>
+	<div class="wrap950">
+    	<div class="crumbs_nav">
+        	当前位置： <a href="http://vip.wanmei.com" target="_blank">鑫仔VIP首页</a> >  <span class="cor_darkred">个人中心</span>
+        </div>
+		<div class="vip_personal_wrap clearfix">
+        	<div class="personal_left">
+            	<div class="info">
+                    <dl>
+                        <dt>
+                            <img src="images/user-face.png" alt="">
+                            <p><a href="#my-information">查看或修改个人信息</a></p>
+                        </dt>
+                        <dd>
+                            <p class="nickname"><strong></strong>你好！</p>
+                            <div class="record">
+                            	<p class="level"><img src="" class="levelImg" /><span id="vipLeavel"></span> VIP服务到期时间：<span id="personalEndTime">0</span></p>
+                                <p class="ip">本次访问IP：<span id="ip"></span></p>
+                                <p class="experience">升级更高级别还需充值：<span id="personalUpgrade">0</span>      保持当前级别还需充值：<span id="personalRelegation">0</span></p>
+                            </div>
+                            <div class="my-progress">
+                            	<div class="my-progress-bar"></div>
+                                <div class="dot">
+                                    <div class="d1"></div>
+                                    <div class="d2"></div>
+                                    <div class="d3"></div>              
+                                    <div class="d4"></div>
+                                </div>
+                            </div>
+                            <div class="my-recharge">
+                            	<a class="btn_recharge" href="http://pay.wanmei.com/new/" target="_blank"></a>
+                                <a class="btn_charge_list" href="http://passport.wanmei.com/charge/history" target="_blank">查看充值记录</a>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="tq">
+                	<div class="tq_t">我的游戏特权</div>
+                    <div class="tq_item clearfix">
+                        <!-- 
+                            togglegames.js
+                            personal.js
+                        -->
+                        <!-- <a class="tq1" href="activitydetail.html?type=1&gametype=4" target="_blank">VIP季度礼包</a> -->
+                    	<a class="tq1" href="javascript:alert('礼包更新中，请稍后尝试领取')" target="_blank">VIP季度礼包</a>
+                        <!-- <a class="tq2" href="activitydetail.html?type=2&gametype=4" target="_blank">VIP生日礼包</a> -->
+                    	<a class="tq2" href="javascript:alert('礼包更新中，请稍后尝试领取')" target="_blank">VIP生日礼包</a>
+                    	<a class="tq3" href="javascript:;">游戏重大更新通知</a>
+                    	<a class="tq4" href="javascript:alert('暂未开放');">优先体验新游戏</a>
+                    </div>
+                </div>
+                <div class="tq" id="tq2">
+                	<div class="tq_t">我的服务特权</div>
+                    <div class="tq_item clearfix">
+                    	<a class="tq5" href="service_detail.html?url=service_bdzh">被盗快速找回</a>
+                    	<a class="tq6" href="" target="_blank">账号问题快速处理</a>
+                    	<a class="tq7" href="http://passport.wanmei.com/" target="_blank">账号安全评估</a>
+                    	<a class="tq8" href="http://pay.wanmei.com/new/" target="_blank">充值管理</a>
+                        <a class="tq9" href="" target="_blank">在线客服</a>
+                    	<div class="v3">
+                            <a class="tq10" href="javascript:;" target="_blank">大客户经理</a>
+                            <a class="tq11" data-url="http://cs.wanmei.com/errorRecovery?gametype=" href="javascript:;">误操作恢复</a>
+                            <a class="tq12" href="service_detail.html?url=service_zhgj">账号管家服务</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-information" id="my-information">
+        			<h3>我的详细资料</h3>
+                    <div class="user-info">
+                    	<ul>
+                        	<li id="user-info-truename">
+                            	<label>真实姓名：</label>
+                                <div class="edit-before"><span></span></div>
+                                <div class="edit-after"><input type="text" id="vip_truename" placeholder="" /></div>
+                                <span id="truenamestatus"></span>
+                                <a class="btn_modify" href="javascript:;" data-type="truename"></a>
+                            </li>
+                        	<li id="user-info-id">
+                            	<label>身份证号码：</label>
+                            	<div class="edit-before"><span></span></div>
+                                <a class="btn_edit btn_modifyid" href="javascript:;"></a>
+                            </li>
+                        	<li id="user-info-birthday">
+                            	<label>出生日期：</label>
+                                <div class="edit-before"><span></span><font>（生日当天可以获得一份惊喜）</font></div>
+                            	<div class="edit-after">
+          							<select name="birthyear" id="vip_birthyear" onchange="reGenerateDays()"></select>年
+                                    <select name="birthmonth" id="vip_birthmonth" onchange="reGenerateDays()"></select>月 
+									<select name="birthday" id="vip_birthday" onchange="checkBirthInfo()"></select>日
+                                    <span id="birthstatus"></span>
+                                </div>
+                            	<a class="btn_modify" href="javascript:;" data-type="birthday"></a>
+                            </li>
+                        	<!--<li id="user-info-email">
+                            	<label>电子邮箱：</label>
+                            	<div class="edit-before"><span></span></div>
+                                <div class="edit-after"><input type="text" id="vip_email" placeholder="" /></div>
+                                <span id="emailstatus"></span>
+                                <a class="btn_modify" href="javascript:;"></a>
+                            </li>
+                        	<li id="user-info-phone">
+                            	<label>联系电话：</label>
+                                <div class="edit-before"><span></span><font>(此号码方可拔打VIP专线)</font></div>
+                                <div class="edit-after"><input type="text" id="vip_telephone" placeholder="" /><font>格式参考：01055667788</font></div>
+                                <span id="telephonestatus"></span>
+                                <a class="btn_modify" href="javascript:;"></a>
+                            </li>-->
+                        	<li id="user-info-mobile">
+                            	<label>手机：</label>
+                                <div class="edit-before"><span></span><font>(此号码方可拔打VIP专线)</font></div>
+                                <a class="btn_edit" href="http://passport.wanmei.com/mobilebind/?do=change" target="_blank"></a>
+                            </li>
+                        	<li id="user-info-address">
+                            	<label>地址：</label>
+                                <div class="edit-before"><span></span></div>
+                                <div class="edit-after">
+                                    <div id="vip_address_city" style="display:inline;">
+                                    	<select id="vip_province" name="province" class="prov" onchange="checkAddressInfo()"><option value="">请选择</option></select>
+                                    	<select id="vip_city" name="city" class="city" disabled="disabled"></select>
+                                    </div>
+                                	<input id="vip_address" name="address" type="text" onchange="checkAddressInfo()">
+                                    <span id="addressstatus"></span>
+                                </div>
+                                <a class="btn_modify" href="javascript:;"></a>
+                            </li>
+                        	<!--<li id="user-info-zipcode">
+                            	<label>邮编：</label>
+                                <div class="edit-before"><span></span></div>
+                                <div class="edit-after"><input type="text" id="vip_zipcode" placeholder="" /></div>
+                                <span id="zipcodestatus"></span>
+                                <a class="btn_modify" href="javascript:;"></a>
+                            </li>-->
+                        	<li id="user-info-project">
+                            	<label>主要使用产品：</label>
+                                <div class="edit-before"><span></span></div>
+                            	<div class="edit-after"><select id="maingame" name="maingame" class="input2"></select></div>
+                                <a class="btn_modify" href="javascript:;" data-type="aid"></a>
+                            </li>
+                        </ul>
+                        <div class="pg_email">
+                            <p class="tishi">重要提示：<br>
+                            1、VIP身份证修改请点击&nbsp;<a href="javascript:;" class="btn_modifyid">修改身份证</a><br>
+                            2、VIP手机修改请点击&nbsp;<a href="http://passport.wanmei.com/mobilebind/?do=change" target="_blank">修改手机</a><br>
+                            3、VIP信息修改只修改填写的，不填写默认不修改<br>
+                            4、如有疑问，请联系鑫仔VIP专线：028-68723798
+                            </p>      	
+						</div>
+                    </div>
+       	 		</div>
+            </div>
+        	<div class="personal_right">
+            	<div class="my-game">
+                	<h3 class="my-game-tit">热门游戏</h3>
+                    <div class="my-game-box">
+                    	<!--<a class="up" href="javascript:;"></a>
+                        <a class="down" href="javascript:;"></a>-->
+                        <div class="my-game-list">
+                            <ul>
+                                <li><img src="images/logo/hot_csgo.jpg" /></li>
+                                <li><img src="images/logo/hot_dota2.jpg" /></li>
+                                <li><img src="images/logo/hot_shushan.jpg" /></li>
+                                <li><img src="images/logo/hot_w2i.jpg" /></li>
+                                <li><img src="images/logo/hot_zhuxian.jpg" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            	<!--#include virtual="/include/cooperation.html"-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="vip_pop" id="modifyid">
+	<div class="vip_pop_tit">
+    	修改身份证
+    	<a class="close_pop" href="javascript:;" id="close_modifyid"></a>
+    </div>
+	<p class="tishi">重要提示：<br>
+		1、如有疑问，请联系鑫仔VIP专线：028-68723798
+    </p>
+    <div class="user-sub">
+    	<ul>
+        	<li><label>手机号码：</label><input type="text" id="vip_fullMobile" name="vip_fullMobile"><span class="tips">请输入11位已填写手机号码</span></li>
+            <li><label>原身份证号码：</label><input type="text" id="oldid" name="oldid"><span class="tips">请输入18位已填写身份证号码</span></li>
+            <li><label>新身份证号码：</label><input type="text" id="newid" name="newid"><span class="tips">请输入18位新身份证号码</span></li>
+            <li><label>新身份证号码：</label><input type="text" id="newidagin" name="newidagin"><span class="tips">请再次输入18位新身份证号码</span></li>
+            <li><label>手机验证码：</label><input type="text" id="vip_mobilecode" name="vip_mobilecode"><button id="mcodebtn" onclick="sendmobilecode()">获取手机验证码</button></li>
+            <li><a id="submitbtn" class="btn_submit" href="javascript:;">确认修改</a></li>
+        </ul>
+    </div>
+     <p class="tishi" style="font-weight:bold">
+        <font color="black">
+        由于运营商原因，短信验证码可能会出现接收延迟，失败的情况，请您多等一下或者多次尝试，给您带来的不便，敬请谅解!
+        </font>
+    </p>
+</div>
+
+<div class="vip_pop" id="pop_misoperation">
+	<div class="vip_pop_tit">
+    	误操作恢复
+    	<a class="close_pop" href="javascript:;"></a>
+    </div>
+    <div class="vip_pop_misoperation">
+    	<div class="shortcutInfo">您现在选择的游戏为<span class="cor_darkred name">诛仙3</span>，您可以<a class="re_select" id="re_select" href="javascript:;">重新选择游戏</a>，<br>或在阅读以下重要内容后，进入<span class="name">诛仙3</span>的误操作恢复功能。</div>
+		<div class="rule_info">
+        	<h4 class="rule_info_tit">总则：</h4>
+            <p class="rule_info_cont">
+            	·因误操作导致装备消失，可申请恢复装备服务。<br>（需当前游戏充值≥15000）（白金VIP专享）<br>
+                ·服务次数：2次/年（一个账号一个自然年两次）<br>
+                ·仅限以下游戏：<br>诛仙、神魔、赤壁、武林、鑫仔国际、神鬼世界、神鬼传奇、神雕侠侣。其他游戏会陆续推出该服务，敬请期待！
+            </p>
+            <div id="detailRules">
+                <h4 class="rule_info_tit">细则：</h4>
+                <p class="rule_info_cont">
+                    
+                </p>
+            </div>
+            <div id="becareful">
+                <h4 class="rule_info_tit">特别注意：</h4>
+                <p class="rule_info_cont">
+                    
+                </p>
+            </div>
+            <a class="btn_readOver" href="javascript:;" target="_blank">我已阅读完成</a>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="http://www.wanmei.com/public/js/jq_171.js"></script>
+<script type="text/javascript" src="js/jquery.boxy.js"></script>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" src="js/public_top.js"></script>
+<script type="text/javascript" src="js/public_siderbar.js"></script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+<script type="text/javascript" src="js/cityselect.js"></script>
+<script type="text/javascript" src="js/vip.js"></script>
+<script type="text/javascript" src="js/personal.js"></script>
+</body>
+</html>

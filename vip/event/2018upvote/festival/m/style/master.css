@@ -1,0 +1,129 @@
+@charset "utf-8";
+
+/* reset.css */
+html,body,body div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,menu,nav,section,time,mark,audio,video,details,summary{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline;background:transparent;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%}article,aside,figure,footer,header,nav,section,details,summary{display:block}img{max-width:100%;vertical-align:bottom}html{overflow-y:scroll}ul,ol{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}a{-webkit-tap-highlight-color:transparent}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted #000;cursor:help}table{border-collapse:collapse;border-spacing:0}th{font-weight:bold;vertical-align:bottom}td{font-weight:normal;vertical-align:top}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}pre{white-space:pre;white-space:pre-wrap;white-space:pre-line;word-wrap:break-word}input,input:focus{outline:none;-webkit-tap-highlight-color:transparent}input[type="radio"]{vertical-align:text-bottom}input[type="checkbox"]{vertical-align:bottom}.ie7 input[type="checkbox"]{vertical-align:baseline}select,input,textarea{font:99% sans-serif}table{font-size:inherit;}small{font-size:85%}strong{font-weight:bold}td,td img{vertical-align:top}sub,sup{font-size:75%;line-height:0;position:relative}sup{top:-0.5em}sub{bottom:-0.25em}pre,code,kbd,samp{font-family:monospace, sans-serif}.clickable,label,input[type=button],input[type=submit],input[type=file],button{cursor:pointer;-webkit-appearance:none}button,input,select,textarea{margin:0}button,input[type=button]{width:auto;overflow:visible}input:not([type]), input[type="email"], input[type="number"], input[type="password"], input[type="tel"], input[type="url"], input[type="text"],input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button{padding:0;margin:0;outline: none; -webkit-appearance:none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color: transparent;appearance:none; -moz-appearance: none; background: transparent; border: none;}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: #666;}input:-moz-placeholder, textarea:-moz-placeholder {color:#666;}input::-moz-placeholder, textarea::-moz-placeholder {color:#666;}input:-ms-input-placeholder, textarea:-ms-input-placeholder {color:#666;}
+textarea{ outline: none; border: none;resize: none;}
+a { text-decoration: none;  blr: expression(this.onFocus=this.blur());outline: none; color: #f8db9a;}
+a:hover {  text-decoration: none; }
+a:focus{ outline: none;}
+.cl:before, .cl:after { content: ""; display: block; height: 0; overflow: hidden; }
+.cl:after { clear: both; }
+.cl { zoom: 1; }
+.fl{ float:left; }
+.fr{ float:right; }
+.white{ color: #fff8e9!important}
+.mb2{ margin-bottom: 20px!important;}
+.pt15{ padding-top: 150px!important;}
+
+
+html {font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/ }
+body {font-size: 1.4rem;/*1.4 × 10px = 14px */ background: #bc363a url(../images/body.jpg) no-repeat center top; font-family: Microsoft YaHei; color: #f8db9a;}
+
+.festival-wrap{ width: 750px; margin: 0 auto; overflow: hidden;}
+.rule-note{ margin: 0 32px;}
+.rule-note h3{ color: #f8db9a; font-size: 48px; text-align: center; padding: 42px 0 0 0;}
+.rule-note h4{ padding-top: 30px; margin-bottom: 30px; font-size: 30px; color: #fff7d6; font-weight: bold;}
+.rule-note p{ font-size: 2.4rem; padding: 4px 0;}
+.rule-note .button{ margin-top: 75px; text-align: center; height: 130px;}
+.rule-note .button .btnPrize{ width: 607px; height: 130px; background: url(../images/login.png) no-repeat; background-position: 0 0; display: block; margin: 0 auto; color: #4a4a4a; font-size: 48px; line-height: 110px;}
+
+.games{ font-size: 30px; color: #f8db9a; text-align: center;  padding-top: 78px;}
+.games span{ display: block; margin-bottom: 10px;}
+.games-list{ margin-top: 45px;}
+.games-list ul{ margin-left: 65px;}
+.games-list li{  width: 184px; height: 88px; border:1px solid #d2d2d2; position: relative; float: left; margin: 0 30px 28px 0;}
+.games-list .shadow{ display: none; width: 178px; height: 82px; border:4px solid #ffd271; position: absolute; left:-1px; top:-1px;}
+.games-list li a{ display: block;}
+.games-list li:hover .shadow,.games-list .on .shadow{ display: block;}
+.games-list img{ width: 184px; height: 88px;}
+
+.button{ display: block; text-align: center; margin: 60px 0 0 0;}
+.commbtn{ width: 371px; height: 80px; text-align: center; line-height: 72px; color: #4a4a4a; font-size: 30px; margin: 0 auto; background: url(../images/button.png) no-repeat!important; display: block; border: none; outline: none; cursor: pointer;}
+
+.swiper-container {width: 100%;height: 100%;margin-left: auto;margin-right: auto;}
+.swiper-slide {text-align: center;font-size: 18px;background: #fff;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center; -webkit-box-align: center;-ms-flex-align: center; -webkit-align-items: center;align-items: center;}
+
+.home{ position: relative; height: 100%;}
+
+.area1{ background:#bc363a url(../images/areabg.jpg) no-repeat center top; position: relative; left:0; top:0; width: 100%; height: 100%;}
+
+.notice{ padding-top: 550px; font-size: 30px; color: #f8db9a;}
+.notice .row{ display: block; margin-bottom: 8px;}
+
+.active-rule{ display: block; margin: 40px auto 60px auto; height: 85px; background: url(../images/tips-bg.png) no-repeat center top;  line-height: 66px; text-align: center; color: #f3e8bc; font-size: 28px;}
+
+.btnLogin{width: 607px;height: 130px;background: url(../images/login.png) no-repeat;background-position: 0 0;display: block;margin: 0 auto;color: #4a4a4a;font-size: 48px;line-height: 110px;}
+.down{ margin: 40px 0 0 0; text-align: center;}
+.down span{ display: block; width: 107px; height: 64px; background: url(../images/down.png) no-repeat; margin: 0 auto;}
+.loginOut{ display:none; font-size: 3.0rem; text-align: center;}
+.userName,.game-name{ color: #fff8e9;}
+.quit{ display:block; font-size: 3.0rem; margin-top: 36px; color: #fff8e9;}
+
+.area2{background:#bc363a url(../images/body.jpg) no-repeat center top; position: relative; left:0; top:0; width: 100%; height: 100%;}
+
+.prompt{ margin:60px 0 48px 0; font-size: 3.0rem;}
+.prompt .line{ display:block; margin-bottom: 10px;}
+.prompt .share{ width: 364px; height: 70px; margin: 0 auto; background: url(../images/tips-bg.png) no-repeat; display:block; line-height: 66px; background-size: 100% 83px; font-size: 2.4rem; margin-top: 38px; margin-bottom: 50px;}
+
+.luck-draw{ margin:0 32px;}
+.luck-draw table{ width: 100%; text-align: center; vertical-align: middle;}
+.lotterybox td{ background: url(../images/lottery.jpg) no-repeat; width: 228px; height: 140px;vertical-align: middle; background-size: 98% auto;}
+.lotterybox .current{background: url(../images/lottery-curr.jpg) no-repeat; background-size: 98% auto;}
+.lotterybox .ptitle{ display:block; font-size: 1.8rem; color: #666; font-weight: bold;}
+.lotterybox .lottery-btn{ background: none;}
+.lotterybox .btnstart{ width: 228px; height: 137px; display:block; background: url(../images/prize.png) no-repeat; text-indent: -9999px;}
+.lotterybox .disable .btnstart{ background: url(../images/prize-disable.png) no-repeat;}
+
+.area2 .commbtn{ width: 280px; height: 68px; display:inline-block; background-size: 100% auto!important; line-height: 54px; font-size: 2.6rem;}
+.area2 .checklist{ margin-right: 15px;}
+.area2 .checkMy{ margin-left: 15px;}
+
+.note{ margin:0 32px; background:url(../images/note-bg.png) no-repeat center top ; width: 686px; height: 260px; margin-top: 30px; position: relative;}
+.notebox { margin:0 auto; height: 146px; width: 686px; overflow: hidden; overflow-y:auto; position: absolute; left:0; top:88px;}
+.notebox li{ height: 46px; line-height: 46px; position: relative; color: #fff7d6; font-size: 2.4rem;}
+.notebox .user{ display:inline-block; float: left; width: 210px; text-align: center;}
+.notebox .mold{ display:inline-block; width: 170px; text-align: center; float: right;}
+
+.myprize h3{ padding:60px 0 50px 0; font-size: 48px; font-weight: bold; text-align: center;}
+.myprizelist{ margin: 0 auto; color: #fff; font-size: 2.4rem;}
+.prizetab{ height: 44px; width: 684px; margin: 0 auto; border: 1px solid #fff; }
+.prizetab span{ display:inline-block; float: left; height: 44px; line-height: 44px; text-align: center;border-right: 1px solid #fff;}
+.myprizelist .col1{ width: 77px;}
+.myprizelist .col2{ width: 227px;}
+.myprizelist .col3{ width: 207px; }
+.myprizelist .col4{ width: 170px; border-right: none;}
+.prizebody{ height: 802px; overflow: hidden; overflow-y: auto; }
+.prizebody span{ display:block}
+.prizebody{ width: 686px; margin: 0 auto; margin-top: -1px;}
+.prizebody table{ width: 100%; text-align: center; border: 1px solid #fff;}
+.prizebody td{ height: 88px; vertical-align: middle;border-right: 1px solid #fff; border-bottom:1px solid #fff;}
+.prizebody .check{ color: #f8db9a;}
+
+.pop{ width: 100%; height: 100%; position: fixed; left:0; top:0; z-index: 99999; background:rgba(0,0,0,.6);}
+.popbox{ width: 678px; height: 878px; position: relative; left:50%; top:50%; margin-left: -339px; margin-top: -439px; background: url(../images/popbg.png) no-repeat; color: #fff8e9; font-size: 42px; text-align: center; }
+.popbox .mgs{ padding-top: 260px; width: 490px; margin: 0 auto;}
+
+.popbox .button{ position: absolute; left:160px; bottom: 250px;}
+.popbox .btnDel{ display:block; position: absolute; left:310px; bottom: 150px; color: #fff8e9; font-size: 3.0rem;}
+
+.goodspop{ color: #f8db9a; font-size: 3.0rem;}
+.prizenote{color: #f8db9a; font-size: 3.0rem; padding: 130px 0 40px 0}
+.prizenote .goods{ color: #fff8e9; font-size: 48px; padding:20px 0; display:block}
+.prizenote .wd{ font-size: 2.4rem;}
+.popbox dl{ margin: 0 130px; height: 46px;}
+.popbox .tag{ width: 82px; color: #fff8e9; font-size: 2.4rem; height: 46px; line-height: 46px; float: left; }
+.popbox .input-wrap{ width: 334px; height: 44px; background-color: #fff; border:1px solid #d2d2d2; float: left; overflow: hidden; text-align: left;}
+.popbox .input-wrap input{ font-size: 2.4rem; color: #4a4a4a; padding-left: 10px; margin-top: -26px;padding:6px 0 0 10px;}
+.popbox .text-wrap{ width: 314px; padding: 10px; height: 106px; background-color: #fff; border:1px solid #d2d2d2; float: left; overflow: hidden; text-align: left; }
+.popbox .text-wrap textarea{ font-size: 2.4rem; color: #4a4a4a; width: 100%;}
+.popbox .addr{ height: auto;}
+
+.popbox .special{ bottom:100px; }
+.codepop .tag{ width: 100px; margin-left: -10px;}
+.codepop .input-wrap{ margin-right: -10px;}
+.codepop .btnCopy{ display:block; margin: 48px auto; width: 130px;height: 60px; background-color: #f8db9a; color: #4a4a4a; font-size: 3.0rem; line-height: 60px;}
+
+.sharepop .share{ margin-top: 20px; float: right; margin-right: 44px;}
+.cpop,.cpwd,.addrbox{ padding-top: 260px;}
+.lotterybox .lottery-item6 img{ margin-top: 14px;}

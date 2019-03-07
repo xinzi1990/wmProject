@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>    
+<html>
+<head>
+<meta charset="utf-8" />
+<!-- <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+<meta name="viewport" content="width=750,user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content=""/>
+<title>确认订单</title>
+<link rel="stylesheet" type="text/css" href="https://static.games.wanmei.com/public/style/swiper-3.3.1.min.css" />
+<link rel="stylesheet" type="text/css" href="style/master.css" />
+</head>
+<body style="background-color: #424343;">
+	<div class="confirm_page">
+		<div class="paper">
+			<p class="paper_top"></p>
+			<div class="paper_content">
+				<table cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<th>订单编号：</th>
+							<td class="orderId"></td>
+						</tr>
+						<tr>
+							<th>订单物品：</th>
+							<td class="batchName"></td>
+						</tr>
+						<tr>
+							<th>物品数量：</th>
+							<td class="amount"></td>
+						</tr>
+						<tr>
+							<th>影片原价：</th>
+							<td class="realPrice"></td>
+						</tr>
+						<tr>
+							<th>会员折扣：</th>
+							<td class="discount"></td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="line"></p>
+				<table cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<th>客户姓名：</th>
+							<td class="userName"></td>
+						</tr>
+						<tr>
+							<th>客户VIP等级：</th>
+							<td class="userRank"></td>
+						</tr>
+						<!-- <tr>
+							<th>联系方式：</th>
+							<td class="">138****4567</td>
+						</tr> -->
+					</tbody>
+				</table>
+				<p class="line"></p>
+				<table cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<th>应付鑫仔点券：</th>
+							<td class="totalPrice"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="paper_bottom"></p>
+		</div>
+		<div class="box_justify buy_submit">
+			<div class="text">小计：<span></span></div>
+			<a href="javascript:void(0);">提交</a>
+		</div>
+	</div>
+
+	<!-- 下单成功 -->
+	<div class="result_success">
+		<div class="text">
+			<p>观影券码将以短信形式发送，同时</p>
+			<p>可在我的订单中<a href="order.html">【查看】</a></p>
+		</div>
+		<img src="images/result_success.png" class="result_icon" />
+		<h2>下单成功</h2>
+		<div class="paper">
+			<p class="paper_top"></p>
+			<div class="paper_content">
+				<table cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<th>订单编号：</th>
+							<td class="orderId"></td>
+						</tr>
+					</tbody>
+					<tbody class="ticketNums">
+						
+					</tbody>
+					<tbody>
+						<tr>
+							<th>券码有效期：</th>
+							<td class="validity"></td>
+						</tr>
+						<tr>
+							<th>消耗鑫仔点券数：</th>
+							<td><span class="payment"></span><a href="javascript:void(0);" class="surplus">【剩余点券数】</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="paper_bottom"></p>
+		</div>
+		<div class="box_justify result_success_btn">
+			<a href="index.html" class="btn1">返回首页</a>
+			<a href="buy.html" class="btn2">继续购买观影券码</a>
+		</div>
+	</div>
+
+	<!-- 下单失败 -->
+	<div class="result_error">
+		<img src="images/result_error.png" class="result_icon" />
+		<div class="text">下单失败</div>
+		<a href="" class="btn">重新下载</a>
+	</div>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/jq_183.js"></script>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/wm.js" top="0" bottom="0"></script>
+	<script type="text/javascript" src="http://static.games.wanmei.com/public/js/clipboard.min.js "></script>
+	<script type="text/javascript" src="js/public.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//查询订单
+			var orderId = getParams('orderId');
+			if(!orderId){
+				window.location.href = 'buy.html';
+			}
+
+			$.ajax({
+			    url:baseUrl + "order/get?id="+orderId,
+			    type:"POST",
+			    xhrFields: {
+			        withCredentials: true
+			    },
+			    success:function(data){
+					if(data.code==0){
+						var result = data.result[0];
+						if(result.status == 0){//未付款
+							$('td.orderId').text(orderId);						//订单编号
+							$('td.batchName').text(result.batchName);			//订单物品
+							$('td.amount').text(result.amount);					//物品数量
+							$('td.discount').text(result.discount/100+'折');	//会员折扣
+							$('td.userName').text(result.userName);				//客户姓名
+							var vip = '';
+							switch(result.userRank){
+								case 0:
+									vip += 'VIP普通会员';
+									break;
+								case 1:
+									vip += 'VIP银卡会员';
+									break;
+								case 2:
+									vip += 'VIP金卡会员';
+									break;
+								case 3:
+									vip += 'VIP白金卡会员';
+									break;
+								case 4:
+									vip += 'VIP终身会员';
+									break;
+							}
+							$('td.userRank').text(vip);							//客户VIP等级
+
+							$.ajax({
+								url:baseUrl + "activity/priceInfo/get?userId=" + CookieUtil.getSub('cookie','userId'),
+								type:"POST",
+								success:function(msg){
+									if(msg.code == 0){
+										$('td.realPrice').text(msg.result.price+'鑫仔点券');//影片原价
+										var totalPrice = msg.result.price*result.amount*result.discount/100;
+										$('td.totalPrice').text(msg.result.price+'*'+result.amount+'*'+result.discount/100+'='+totalPrice+'点券');//应付鑫仔点券
+										$('.buy_submit .text span').text(totalPrice+'点券');
+									}else{
+					                    alert(msg.message);
+					                }
+								}
+							});
+						}else{
+							$('.confirm_page').hide();
+							if(result.status == 1){//已支付
+								$('td.orderId').text(orderId);						//订单编号
+								var str = '';
+								var code = JSON.parse(result.ticketNums);
+								for(var i=0; i<code.length; i++){
+									str += '<tr>';
+									if(i == 0){
+										str += '	<th>观影券码：</th>';
+									}else{
+										str += '	<th>&nbsp;</th>';
+									}
+									str += '	<td><span>'+code[i]+'</span><a href="javascript:void(0);" class="copy" data-clipboard-text="'+code[i]+'">复制</a></td>';
+									str += '</tr>';
+								}
+								$('tbody.ticketNums').html(str);
+								$('td.validity').html(result.payTime+'&nbsp;至&nbsp;'+result.ticketExpTime);
+								$('span.payment').text(result.payment);
+								$('.result_success').show();
+
+								//剩余点券数
+								$('a.surplus').on('click',function(){
+									$.ajax({
+									    url:baseUrl + "/user/coupon/get",
+									    type:"POST",
+									    xhrFields: {
+									        withCredentials: true
+									    },
+									    success:function(data){
+									        if(data.code==0){
+									            alert('您当前的点券余额为：' + data.result);
+									        }
+									    }
+									});
+								});
+							}else{//已退款
+								$('.result_error').show();
+							}
+						}
+					}else{
+						alert(data.message);
+					}
+			    }
+			});
+
+			//支付订单
+			$('.buy_submit a').on('click',function(){
+				$.ajax({
+				    url:baseUrl + "order/pay?orderId=" + orderId,
+				    type:"POST",
+				    xhrFields: {
+				        withCredentials: true
+				    },
+				    success:function(data){
+				        console.log(data)
+				        $('.confirm_page').hide();
+				        if(data.code==0){
+				            $('.result_success').show();
+				        }else{
+				            $('.result_error').show();
+				        }
+				    }
+				});
+			});
+
+
+			var clipboard = new Clipboard('.copy');
+
+			clipboard.on('success', function(e){
+				alert("复制成功");
+			});
+
+			clipboard.on('error', function(e){
+				alert("复制失败");
+			});
+		});
+	</script>
+</body>
+</html>

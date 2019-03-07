@@ -1,0 +1,117 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border: 0; font-size: 100%; vertical-align: baseline; margin: 0; padding: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, li { display: block; }
+
+body { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after { content: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+img { vertical-align: bottom; }
+
+button, input[type=button] { overflow: visible; box-sizing: content-box; }
+
+label, input[type=button], input[type=submit], input[type=file], button { cursor: pointer; -webkit-appearance: none; }
+
+button, input, select, textarea { margin: 0; }
+
+button, input[type=button] { width: auto; overflow: visible; }
+
+input:not([type]), input[type="email"], input[type="number"], input[type="password"], input[type="tel"], input[type="url"], input[type="text"], input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button { padding: 0; margin: 0; }
+
+body { background: url("../images/bodybg.png"); font: 16px/22px "Microsoft Yahei"; color: #000; min-width: 1000px; }
+
+.cl:before, .cl:after { content: ""; display: block; height: 0; overflow: hidden; }
+
+.cl:after { clear: both; }
+
+.cl { zoom: 1; }
+
+.fl { float: left; }
+
+.fr { float: right; }
+
+.f12 { font-size: 12px; }
+
+.f16 { font-size: 16px; }
+
+.fw7 { font-weight: 700; }
+
+.fw4 { font-weight: 400; }
+
+.pr { position: relative; }
+
+.pa { position: absolute; }
+
+.vm { vertical-align: middle; }
+
+.tac { text-align: center; }
+
+a { color: #32353c; text-decoration: none; }
+
+a:hover { opacity: 0.9; }
+
+.wrap { width: 960px; margin-left: auto; margin-right: auto; }
+
+/*header*/
+.muen { height: 86px; background: #d6313a url(http://vip.wanmei.com/images/nav_bg.jpg) no-repeat center top; clear: both; width: 100%; min-width: 950px; }
+
+.muen_box { width: 950px; margin: 0 auto; position: relative; }
+
+.muen_box ul { float: right; }
+
+.muen_box ul li { margin-left: 35px; height: 86px; float: left; font-size: 16px; font-weight: bold; line-height: 86px; position: relative; }
+
+.muen_box ul li a { color: #fff; display: block; text-align: center; position: relative; }
+
+.muen_box ul li a:hover { text-decoration: none; color: #fde08a; }
+
+.muen_box ul li a:hover:after { content: ''; width: 0; height: 0; border-right: 5px solid transparent; border-bottom: 5px solid #fff; border-left: 5px solid transparent; position: absolute; bottom: 0; left: 50%; margin-left: -5px; }
+
+.muen_box .logo { position: relative; top: 9px; }
+
+.muen_box .logo, .muen_box .logo a, .muen_box .logo span { width: 147px; height: 67px; display: block; }
+
+.muen_box .logo a, .muen_box .logo span { position: absolute; }
+
+.muen_box .logo a { text-indent: -9999em; z-index: 2; }
+
+.muen_box .logo span { background: url("http://vip.wanmei.com/images/vip_logo.png"); }
+
+.maintit { position: relative; text-align: center; font: 700 30px/32px "Microsoft Yahei"; color: #000; height: 76px; overflow: hidden; }
+.maintit .en { display: block; color: rgba(0, 0, 0, 0.05); margin-top: 22px; font-size: 48px; text-transform: uppercase; }
+
+.module01 { width: 760px; margin: 0 auto 70px; position: relative; }
+.module01:before { content: ''; width: 774px; height: 8px; border-radius: 6px; background: #000000; position: absolute; top: -4px; left: 50%; margin-left: -387px; }
+.module01 .bottom { content: ''; width: 100%; height: 12px; border-radius: 3px; background: url("../images/bottom.png") 50% 0; position: absolute; bottom: -12px; left: 0; }
+.module01 .bottom:before { content: ''; position: absolute; left: 0; top: 0; width: 7px; height: 10px; background: #FFF; }
+.module01 .bottom:after { content: ''; position: absolute; right: 0; top: 0; width: 7px; height: 10px; background: #FFF; }
+.module01 .inner { background: -webkit-linear-gradient(#e6dec7, #FFF 32px); background: -ms-linear-gradient(#e6dec7, #FFF 32px); background: -moz-linear-gradient(#e6dec7, #FFF 32px); background: linear-gradient(#e6dec7, #FFF 32px); min-height: 200px; position: relative; z-index: 2; }
+
+.hero { background: url("../images/hero.jpg") 50% 0 no-repeat; }
+.hero .wrap { height: 658px; }
+.hero .info { top: 181px; left: 320px; color: #ffe17c; font: 16px/22px "Microsoft Yahei"; width: 552px; }
+.hero .time { width: 100%; top: 239px; left: 0; font-size: 18px; color: #f9e4a0; }
+.hero .box { padding-top: 315px; }
+.hero .login, .hero .logout { color: #FFF; font-size: 18px; line-height: 22px; }
+.hero .login a, .hero .logout a { color: #f3df9a; }
+.hero .login .username, .hero .logout .username { margin-left: 5px; }
+.hero .logout { display: none; }
+.hero .btn { display: inline-block; background: url("../images/btn1.png"); width: 252px; height: 74px; text-indent: -999em; outline: none; margin-top: 20px; }
+.hero .btn:hover { opacity: 0.9; }
+.hero .info2 { padding-top: 20px; font: 16px/24px "Microsoft Yahei"; color: #f2ca42; }
+
+.m1 .module01 .list { padding: 45px 100px 40px 138px; font-size: 16px; line-height: 36px; color: #000000; counter-reset: term; }
+.m1 .module01 li { padding-left: 35px; line-height: 36px; position: relative; }
+.m1 .module01 li:before { counter-increment: term; content: counter(term); width: 22px; height: 22px; text-align: center; line-height: 22px; color: #f3ebd3; position: absolute; left: 0; top: 7px; background: #de0f0f; border-radius: 50%; }
+
+.m2 .cnt { padding-top: 32px; width: 524px; margin: 0 auto; height: 285px; box-sizing: border-box; }
+.m2 table { margin-top: 20px; }
+.m2 th, .m2 td { border: 1px dotted rgba(204, 204, 204, 0.6); }
+.m2 th { background: #f6f6f6; height: 50px; line-height: 50px; text-align: center; }
+.m2 td { line-height: 40px; }

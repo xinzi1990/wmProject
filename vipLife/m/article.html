@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>    
+<html>
+<head>
+<meta charset="utf-8" />
+<!-- <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+<meta name="viewport" content="width=750,user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content=""/>
+<title>影片详情</title>
+<link rel="stylesheet" type="text/css" href="https://static.games.wanmei.com/public/style/swiper-3.3.1.min.css" />
+<link rel="stylesheet" type="text/css" href="style/master.css" />
+</head>
+<body style="background-color: #e6e8eb;">
+	<!-- article_header -->
+	<div class="article_header">
+		<img src="images/demo/article_bg.jpg" class="article_bg" />
+		<div class="cf content">
+			<div class="f_left article_video">
+				<span class="icon1">正在热映</span>
+				<img src="images/demo/article_video.jpg" />
+			</div>
+			<div class="f_left info">
+				
+			</div>
+		</div>
+		<div class="cf score">
+			<p class="f_left stars"></p>
+			<p class="f_left grade"><span></span>&nbsp;/&nbsp;5</p>
+			<p class="f_right num">累计票房&nbsp;：&nbsp;<span></span></p>
+		</div>
+	</div>
+
+	<!-- article_main -->
+	<div class="article_main">
+		<div class="introduction">
+			<h2 class="sub_title">剧情简介</h2>
+			<div class="text on">
+				
+			</div>
+			<a href="javascript:void(0);" class="arrow on"></a>
+		</div>
+		<div class="pic_list">
+			<h2 class="sub_title">电影图片</h2>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					
+				</div>
+			</div>
+		</div>
+		<div class="video_list">
+			<h2 class="sub_title">视频和剧照</h2>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="buy.html" class="buy_code">购买观影券码</a>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/jq_183.js"></script>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/wm.js" top="0" bottom="0"></script>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/swiper-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//剧情简介
+			$('.introduction .arrow').on('click',function(){
+				if($(this).hasClass('on')){
+					$(this).removeClass('on');
+					$('.introduction .text').removeClass('on');
+				}else{
+					$(this).addClass('on');
+					$('.introduction .text').addClass('on');
+				}
+			});
+
+			//获取电影详情
+			var id = '';
+			if(getParams('id')){
+				id = getParams('id');	
+			}else{
+				window.location.href = 'index.html';
+			}
+			$.ajax({
+				url:baseUrl + "activity/movie/get?id=" + id,
+				type:"POST",
+				success:function(data){
+					if(data.code==0){
+						result = data.result[0];
+						var poster = JSON.parse(result.poster);
+						var picture = JSON.parse(result.picture);
+						var video = JSON.parse(result.video);
+						var score = result.grade / 10;
+						var offTime = result.offTime?result.offTime:'请以院线信息为准';
+						var sumIncome = result.sumIncome;
+
+						//影片信息
+						var info = '';
+						info += '<h1 class="title">'+result.name+'</h1>';
+						info += '<h2 class="sub_title">'+result.subName+'</h2>';
+						info += '<br />';
+						info += '<p>'+result.location+'&nbsp;&nbsp;'+result.duration+'&nbsp;&nbsp;分钟&nbsp;&nbsp;&nbsp;&nbsp;<span class="col">|</span>&nbsp;&nbsp;&nbsp;&nbsp;'+result.movieType+'</p>';
+						info += '<p>'+result.startTime+'&nbsp;&nbsp;<span class="col">上映&nbsp;&nbsp;|</span>&nbsp;&nbsp;'+result.endTime+'&nbsp;&nbsp;<span class="col">下映</span></p>';
+						info += '<br />';
+						info += '<p><span class="col">导演：</span>'+result.director+'</p>';
+						// info += '<p><span class="col">主演：</span>乌龟王八蛋</p>';
+						$('.article_header .info').html(info);
+
+						//评分
+						$('.article_header .stars').addClass('s'+Math.round(score));
+						$('.article_header .grade span').text(score);
+
+						//票房
+						if(isNaN(result.sumIncome)){
+							$('.article_header .num').hide();
+						}else{
+							$('.article_header .num span').text(result.sumIncome/100+'亿元');
+						}
+
+						//剧情简介
+						$('.article_main .introduction .text').html(result.synopsis);
+
+						//电影图片
+						var pic_list = '';
+						for(var i=0; i<picture.length; i++){
+							pic_list += '<div class="swiper-slide"><img src="'+picture[i][0]+'" /></div>';//[0]原图，[1]缩略图 或 空
+						}
+						$('.pic_list .swiper-wrapper').html(pic_list);
+						var swiperPic = new Swiper('.pic_list .swiper-container', {
+							slidesPerView: 'auto',
+							spaceBetween: 10,
+						});
+
+						//视频和剧照
+						var video_list = '';
+						for(var j=0; j<video.length; j++){
+							video_list += '<div class="swiper-slide"><a href="'+video[j].video+'"><span></span><img src="'+video[j].pic[0]+'" alt="'+video[j].name+'" /></a></div>';
+						}
+						$('.video_list .swiper-wrapper').html(video_list);
+						var swiperVideo = new Swiper('.video_list .swiper-container', {
+							slidesPerView: 'auto',
+							spaceBetween: 10,
+						});
+					}else{
+	                    alert(data.message);
+	                }
+				}
+			});	
+
+			//购买观影券码
+			$('.buy_code').on('click',function(){
+				if(!isLogin){
+					login();
+					return false;
+				}
+			});
+		});
+	</script>
+</body>
+</html>

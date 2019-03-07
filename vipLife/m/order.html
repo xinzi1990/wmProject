@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>    
+<html>
+<head>
+<meta charset="utf-8" />
+<!-- <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+<meta name="viewport" content="width=750,user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content=""/>
+<title>我的订单</title>
+<link rel="stylesheet" type="text/css" href="https://static.games.wanmei.com/public/style/swiper-3.3.1.min.css" />
+<link rel="stylesheet" type="text/css" href="style/master.css" />
+</head>
+<body style="background-color: #424343;">
+	<div class="confirm_page">
+		
+	</div>
+
+	<!-- 无订单 -->
+	<div class="order_null">
+		<div class="text">
+			<br />
+			<br />
+			<br />
+			<br />
+			<p>一个订单都没有哦~</p>
+			<p>给自己定个小目标，先下一单</p>
+			<br />
+			<br />
+		</div>
+		<a href="" class="btn">立即下单</a>
+	</div>
+
+	<div class="box_justify order_submit">
+		<a href="index.html" class="btn1">首页</a>
+		<a href="javascript:void(0);" class="btn2">我的订单</a>
+	</div>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/jq_183.js"></script>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/wm.js" top="0" bottom="0"></script>
+	<script type="text/javascript" src="http://static.games.wanmei.com/public/js/clipboard.min.js "></script>
+	<script type="text/javascript" src="js/public.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//获取订单列表
+			$.ajax({
+			    url:baseUrl + "order/get",
+			    type:"POST",
+			    xhrFields: {
+			        withCredentials: true
+			    },
+			    success:function(data){
+			       if(data.code==0){
+                       var result = data.result;
+                       if(result.length > 0){
+	                       var str = '';
+	                       for(var i= 0; i<result.length; i++){
+		                   		str += '<p class="date_time">'+result[i].createTime+'</p>';
+		                   		str += '<div class="paper">';
+		                   		str += '	<p class="paper_top"></p>';
+		                   		str += '	<div class="paper_content">';
+		                   		str += '		<table cellspacing="0" cellpadding="0">';
+		                   		str += '			<tbody>';
+		                   		str += '				<tr>';
+		                   		str += '					<th>订单编号：</th>';
+		                   		str += '					<td>'+result[i].id+'</td>';
+		                   		str += '				</tr>';
+		                   		if(result[i].status == 1){
+		                   			if(result[i].ticketNums){
+		                   				var code = JSON.parse(result[i].ticketNums);
+		                   				for(var k=0; k<code.length; k++){
+		                   					str += '				<tr>';
+		                   					str += '					<th>观影券码：</th>';
+		                   					str += '					<td><span>'+code[k]+'</span><a href="javascript:void(0);" class="copy" data-clipboard-text="'+code[k]+'">复制</a></td>';
+		                   					str += '				</tr>';
+		                   				}
+		                   			}
+		                   		}
+		                   		str += '				<tr>';
+		                   		str += '					<th>所属活动：</th>';
+		                   		str += '					<td>电影折扣兑换</td>';
+		                   		str += '				</tr>';
+		                   		str += '				<tr>';
+		                   		str += '					<th>下单等级：</th>';
+		                   		switch(result[i].userRank){
+		                   			case 0:
+		                   				str += '					<td>VIP普通会员</td>';
+		                   				break;
+		                   			case 1:
+		                   				str += '					<td>VIP银卡会员</td>';
+		                   				break;
+		                   			case 2:
+		                   				str += '					<td>VIP金卡会员</td>';
+		                   				break;
+		                   			case 3:
+		                   				str += '					<td>VIP白金卡会员</td>';
+		                   				break;
+		                   			case 4:
+		                   				str += '					<td>VIP终身会员</td>';
+		                   				break;
+		                   		}
+		                   		str += '				</tr>';
+		                   		str += '			</tbody>';
+		                   		str += '		</table>';
+		                   		str += '		<p class="line"></p>';
+		                   		str += '		<table cellspacing="0" cellpadding="0">';
+		                   		str += '			<tbody>';
+		                   		str += '				<tr>';
+		                   		str += '					<th>合计：</th>';
+	                       		if(result[i].status == 0){//未付款
+	                       			str += '					<td>'+result[i].payment+'点券<span class="operation"><a href="confirm.html?orderId='+result[i].id+'" class="buy">购买</a></span></td>';
+	                       		}else if(result[i].status == 1){//已支付
+	                       			str += '					<td>'+result[i].payment+'点券<span class="operation"><span class="already">已支付</span></span></td>';
+	                       		}else if(result[i].status == 2){//已退款
+	                       			str += '					<td>'+result[i].payment+'点券<span class="operation"><span class="refunded">已退款</span></span></td>';
+	                       		}else if(result[i].status == 3){//已关闭
+	                       			str += '					<td>0点券<span class="operation"><span class="closed">已关闭</span></span></td>';
+	                       		}
+	                       		str += '				</tr>';
+	                       		str += '			</tbody>';
+	                       		str += '		</table>';
+	                       		str += '	</div>';
+	                       		str += '	<p class="paper_bottom"></p>';
+	                       		str += '</div>';
+	                       }
+	                       $('.confirm_page').html(str);
+                       }else{
+                       		$('.confirm_page').hide();
+                       		$('.order_null').show();
+                       }
+                   }else{
+                       alert(data.message);
+                   }
+			    }
+			});
+
+			var clipboard = new Clipboard('.copy');
+
+			clipboard.on('success', function(e){
+				alert("复制成功");
+			});
+
+			clipboard.on('error', function(e){
+				alert("复制失败");
+			});
+		});
+	</script>
+</body>
+</html>

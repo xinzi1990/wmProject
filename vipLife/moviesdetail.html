@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>VIP生活特权</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css">
+<link rel="stylesheet" type="text/css" href="style/main.css">
+<script type="text/javascript" src="http://www.wanmei.com/public/js/wm.js" top="false" bottom="false"></script>
+<script type="text/javascript" src="http://www.wanmei.com/public/js/jq_171.js"></script>
+<script type="text/javascript" src="js/distpicker.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+	<div class="movies-wrap">
+    	<div class="movies-info">
+        	<div class="crumbs_nav">
+				您现在的位置：<a href="index.html">首页</a><span>&gt;</span>电影详情
+            </div>
+            <div class="movies-view">
+            	<i class="m-state">正在热映</i>
+            	<img src="" alt="" />
+            </div>
+            <div class="movies-intro">
+            	<div class="m-name"><h1></h1><h2></h2></div>
+                <div class="m-time"></div>
+            </div>
+            <div class="movies-score">
+            	<div class="m-score"><strong></strong>/5</div>
+                <div class="m-score-txt">
+                	<p>累计票房</p>
+                    <h3></h3>
+                </div>
+                <div class="m-rank"></div>
+            </div>
+        </div>
+    </div>
+    <div class="movies-nav">
+    	<div class="movies-nav-bar">
+        	<a class="on" href="javascript:;"><i class="i-bar1"></i>影片介绍</a>
+        	<a class="" href="javascript:;"><i class="i-bar3"></i>电影图片</a>
+        	<a class="" href="javascript:;"><i class="i-bar2"></i>电影视频</a>
+        </div>
+    </div>
+    <div class="wrap1300">
+        <div class="film-wrap">
+            <div class="film-msg clearfix">
+            	<ul>
+                	<li><strong>导演：</strong><span id="director"></span></li>
+                    <li><strong>制片国家  /  地区：</strong><span id="location"></span></li>
+                    <li><strong>语言：</strong><span id="lang"></span></li>
+                    <li><strong>片长：</strong><span id="moviesTime"></span></li>
+                </ul>
+            </div>
+            <div class="film-intro">
+                <h3 class="tit">剧情简介</h3>
+                <p><a href="javascript:;" class="show">展开全部剧情</a></p>
+            </div>
+            <div class="film-img">
+                <h3 class="tit">电影图片</h3>
+            	<div class="film_slides film_pic_slides" id="film_pic_slides">
+                    <a class="prev" href="javascript:;"></a>
+                    <a class="next" href="javascript:;"></a>
+                    <div class="bd">
+                        <ul class="clearfix">
+                            <!--<li><div class="movies-img"><img src="images/img1.jpg" /></div></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="film-video">
+                <h3 class="tit">电影视频</h3>
+            	<div class="film_slides film_video_slides" id="film_video_slides">
+                    <a class="prev" href="javascript:;"></a>
+                    <a class="next" href="javascript:;"></a>
+                    <div class="bd">
+                        <ul class="clearfix">
+                            <li><div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div></li>
+                            <li><div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div></li>
+                            <li><div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div></li>
+                            <li><div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div></li>
+                            <li><div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div></li>
+                            <li><div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div></li>
+                            <li><div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div></li>
+                            <li><div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div></li>
+                            <li><div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="other-hot-movies">
+    	<div class="wrap1300">
+        	<div class="tit"><strong>其他热映电影</strong> <a href="index.html" class="btn_back">返回观影特权首页</a></div>
+            <div class="slides_pic" id="detailMovies">
+            	<a class="prev" href="javascript:;"></a>
+            	<a class="next" href="javascript:;"></a>
+                <div class="bd">
+                    <ul class="clearfix">
+                        <!--<li>
+                        	<div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div>
+                            <div class="movies-name">英伦对决1</div>
+                        	<div class="movies-score">
+                            	<span class="star">
+                                	<span class="on"></span>
+                                	<span class="on"></span>
+                                	<span class="on"></span>
+                                	<span class="half"></span>
+                                	<span></span>
+                                </span>
+                                <span class="score">7.2分</span>
+                            </div>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cinema-bar">
+    	<div class="cinema-top">
+        	<h1><strong>VIP专享</strong><br>低价观影  鑫仔“聚”惠</h1>
+        </div>
+        <div class="cinema-sale">
+        	<ul>
+            	<li>VIP银卡<strong>12元起</strong></li>
+            	<li>VIP金卡<strong>12元起</strong></li>
+            	<li>VIP白金卡<strong>8元起</strong></li>
+            	<li>VIP终身卡<strong>8元起</strong></li>
+            </ul>
+        </div>
+        <div class="cinema-info">
+        	<div class="tit">查看附近的鑫仔影城</div>
+            <div class="cinema-address">
+                <div class="cinema-city" data-toggle="distpicker">
+                    <select class="cinema_province" data-province="----选择省----"></select>
+                    <select class="cinema_city" data-city="----选择市----"></select>
+                    <select class="cinema_area" data-district="----选择区----"></select>
+                </div>
+                <div class="cinema-items">
+                	<ul>
+                    	<!--<li>
+                        	<p class="name">鑫仔世界影城（比如店）</p>
+                            <p class="position">北京市朝阳区京顺路111号比如世界购物中心1层</p>
+                            <p class="tel">010- 64304175</p>
+                        </li>
+                        <li>
+                        	<p class="name">鑫仔世界影城（比如店）</p>
+                            <p class="position">北京市朝阳区京顺路111号比如世界购物中心1层</p>
+                            <p class="tel">010- 64304175</p>
+                        </li>
+                        <li>
+                        	<p class="name">鑫仔世界影城（比如店）</p>
+                            <p class="position">北京市朝阳区京顺路111号比如世界购物中心1层</p>
+                            <p class="tel">010- 64304175</p>
+                        </li>
+                        <li>
+                        	<p class="name">鑫仔世界影城（比如店）</p>
+                            <p class="position">北京市朝阳区京顺路111号比如世界购物中心1层</p>
+                            <p class="tel">010- 64304175</p>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="btn-cinema">
+        	<a href="buy.html"><strong>购买观影券码</strong></a>
+        </div>
+    </div>
+</div>
+
+
+<div class="pop_video" id="pop_video">
+	<a class="closeBtn" href="javascript:void(0);" id="closeBtn"></a>
+    <iframe src="http://player.youku.com/embed/XMzIyNDM4NDEwNA==" width="800" height="500" id="pop_iframe"></iframe>
+</div>
+
+
+<script type="text/javascript" src="http://static.games.wanmei.com/public/js/jquery.boxy.js"></script>
+
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/public_top.js"></script>
+<script type="text/javascript" src="http://vip.wanmei.com/js/footer.js"></script>
+<script type="text/javascript" src="js/city.js"></script>
+<script type="text/javascript" src="http://static.games.wanmei.com/public/js/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="js/library.js"></script>
+<script>
+$(function(){
+	getMoviesDetail();
+ 
+	var detailMovies = new HotMovies($('#detailMovies'));
+	
+	$(window).on('scroll',function(){
+		if($(document).scrollTop() > 260){
+			$('.cinema-bar').addClass('barFixed');
+		}else{
+			$('.cinema-bar').removeClass('barFixed');
+		}
+	})
+	
+	$('.movies-nav-bar a').on('click',function(){
+		var index = $(this).index();
+		var arr = [0,$('.film-img').offset().top,$('.film-video').offset().top];
+		$(this).addClass('on').siblings().removeClass('on');
+		$('html,body').animate({scrollTop:arr[index] - 66},300);
+	})
+
+    var cityArr = [];
+    $.getCinemaAddress({cityList:cityList});
+	$('.cinema-city .cinema_province').on('change',function(){
+        var code = $(this).find("option:selected").attr("data-code");
+        cityArr = [];
+		cityArr.push(code);
+        $.getCinemaAddress({
+            province:cityArr[0],
+            cityList:cityList
+        });
+        
+	});
+    $('.cinema-city .cinema_city').on('change',function(){
+        var code = $(this).find("option:selected").attr("data-code");
+		if(cityArr.length == 2){
+			cityArr[1] = code;
+		}else{
+			cityArr.push(code);	
+		}
+		console.log(cityArr);
+        $.getCinemaAddress({
+			province:cityArr[0],
+            city:cityArr[1],
+            cityList:cityList
+        });
+    });
+    $('.cinema-city .cinema_area').on('change',function(){
+        var code = $(this).find("option:selected").attr("data-code");
+        $.getCinemaAddress({
+            province:cityArr[0],
+            city:cityArr[1],
+            area:code,
+            cityList:cityList
+        });
+    });	
+	
+	
+})
+</script>
+</body>
+</html>

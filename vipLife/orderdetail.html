@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>VIP生活特权</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css">
+<link rel="stylesheet" type="text/css" href="style/main.css">
+<script type="text/javascript" src="http://www.wanmei.com/public/js/wm.js" top="false" bottom="false"></script>
+<script type="text/javascript" src="http://www.wanmei.com/public/js/jq_171.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+	<div class="inside-wrap">
+    	<div class="wrap1300">
+            <div class="inside-header">
+                <div class="crumbs_nav">
+                    您现在的位置：<a href="index.html">首页</a><span>&gt;</span>购买观影券码<span>&gt;</span>确认订单
+                </div>
+                <h1 class="logo"></h1>
+                <div class="tit">购买观影券码</div>
+            </div>
+            <div class="order-container">
+            	<div class="order-info">
+                	<div class="order-header"><strong>订单详情</strong><a class="btn_edit" href="javascript:;" style="display:none;">修改</a></div>
+                    <div class="order-box">
+                    	<div class="fl">
+                        	订单编号：<span class="code"></span><br>客户姓名：<span class="name"></span><br>客户VIP等级：<span class="rank"></span><br>客户鑫仔点券余额：<span class="lookSurplus"></span><!--<br>联系方式：<span class="tel">123****4567</span>-->
+                        </div>
+                        <div class="fl">
+                        	订单物品：<span class="p_name">鑫仔影城观影券码</span><br>数量：<span class="num"></span><br>影片原价：<span class="o_price"></span><br>折扣：<span class="sale"></span>
+                        </div>
+                        <div class="fl last">
+                        	应付鑫仔点券：<br><span class="n_price">200*2*0.6</span> = <br> <span class="total cor_red"><strong>240</strong></span>
+                        </div>
+                    </div>
+                    <a class="btn_recharge" href="https://pay.wanmei.com/new/newpay.do?op=prepay&gametype=93" target="_blank">点这里充值鑫仔点券</a>
+                    <div class="order-overdue" style="display:none;">券码有效期：<span class="startTime">2017年11月1日</span>  至  <span class="endTime">2017年11月22日</span></div>
+                    <div class="order-detail-tip">请您核对以上订单信息，一但提交,无法修改。</div>
+                    <a class="btn_common btn-submit" href="javascript:;">提交</a>
+                </div>
+            </div>
+		</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://static.games.wanmei.com/public/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" src="js/public_top.js"></script>
+<script type="text/javascript" src="http://vip.wanmei.com/js/footer.js"></script>
+<script type="text/javascript" src="js/library.js"></script>
+<script>
+$(function(){
+	confirmOrder();	
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>VIP生活特权</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css">
+<link rel="stylesheet" type="text/css" href="style/main.css">
+<script type="text/javascript" src="http://www.wanmei.com/public/js/wm.js" top="false" bottom="false"></script>
+<script type="text/javascript" src="http://www.wanmei.com/public/js/jq_171.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+	<div class="inside-wrap">
+    	<div class="wrap1300">
+            <div class="inside-header">
+                <div class="crumbs_nav">
+                    您现在的位置：<a href="index.html">首页</a><span>&gt;</span>购买观影券码<span>&gt;</span>确认订单
+                </div>
+                <h1 class="logo"></h1>
+                <div class="tit">购买观影券码</div>
+            </div>
+            
+            <div class="order-success">
+            	<div class="success_box">
+                	<h1>下单成功！</h1>
+                    <p class="tips">以下是您的订单信息，稍后将把观影券码的短信发送到您的手机，请注意查收。</p>
+                    <div class="order-details">
+                    	<ul class="head clearfix">
+                        	<li>订单号：</li>
+                        	<li>观影券码：</li>
+                        	<li>花费鑫仔点券：</li>
+                        	<li>券码有效期至：</li>
+                        </ul>
+                        <ul class="detail clearfix">
+                        	<li><span class="order_num"></span></li>
+                        	<li><span class="code"></span></li>
+                        	<li><span class="coupons"></span><a href="javascript:;" class="btn-surplus">查看剩余点券</a></li>
+                        	<li><span class="ticketTime"></span></li>
+                        </ul>
+                    </div>
+                    <a class="btn-back" href="index.html">返回观影特权首页</a>
+                	<a class="btn_common btn-submit" href="buy.html">继续购买观影券码</a>
+                </div>
+            </div>
+		</div>
+        <div class="recommend-movies">
+        	<div class="tit">参与本次活动的热门电影</div>
+            <div class="slides_pic" id="orderSuccess">
+                <a class="prev" href="javascript:;"></a>
+                <a class="next" href="javascript:;"></a>
+                <div class="bd">
+                    <ul class="clearfix">
+                        <!--<li>
+                        	<div class="movies-img"><a href=""><img src="images/img1.jpg" /></a></div>
+                            <div class="movies-name">英伦对决1</div>
+                        	<div class="movies-score">
+                            	<span class="star">
+                                	<span class="on"></span>
+                                	<span class="on"></span>
+                                	<span class="on"></span>
+                                	<span class="half"></span>
+                                	<span></span>
+                                </span>
+                                <span class="score">7.2分</span>
+                            </div>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://static.games.wanmei.com/public/js/jquery.boxy.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" src="js/public_top.js"></script>
+<script type="text/javascript" src="http://vip.wanmei.com/js/footer.js"></script>
+<script type="text/javascript" src="js/city.js"></script>
+<script type="text/javascript" src="http://static.games.wanmei.com/public/js/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="js/library.js"></script>
+<script>
+$(function(){	
+	successOrder();
+	var orderSuccess = new HotMovies($('#orderSuccess'));
+})
+</script>
+</body>
+</html>

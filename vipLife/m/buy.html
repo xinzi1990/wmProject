@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>    
+<html>
+<head>
+<meta charset="utf-8" />
+<!-- <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+<meta name="viewport" content="width=750,user-scalable=no" />
+<meta name="description" content="" />
+<meta name="keywords" content=""/>
+<title>购买观影券码</title>
+<link rel="stylesheet" type="text/css" href="https://static.games.wanmei.com/public/style/swiper-3.3.1.min.css" />
+<link rel="stylesheet" type="text/css" href="style/master.css" />
+</head>
+<body style="background-color: #e5e6ea;">
+	<!-- buy_header -->
+	<div class="cf buy_header">
+		<img src="images/vip1.png" class="f_left vip_pic" />
+		<div class="f_left info">
+			<h2>VIP<span></span></h2>
+			<br />
+			<p class="discount"></p>
+			<br />
+			<p class="num"></p>
+		</div>
+	</div>
+
+	<!-- buy_main -->
+	<div class="buy_main">
+		<div class="content">
+			<div class="tip">
+				<p>购买时将扣除账号的鑫仔点券余额，若余额不足请先充值，<a href="https://pay.wanmei.com/new/newpay.do?op=prepay&gametype=93" target="_blank">【点我充值】</a>。</p>
+				<p>您购买的是鑫仔VIP观影券码，<span></span> 。</p>
+				<p>下单后请留意观影券码的有效时间，请在有效时间内兑换观影。</p>
+				<p>请先查看所在地<a href="javascript:void(0);" class="see_cinema">【院线信息】（点击查看）</a>以免造成购票后无法观影。</p>
+			</div>
+			<div class="sideMenu">
+				<h3><em></em>券码购买须知</h3>
+				<div class="notice">
+					<h2>功能</h2>
+					<p>观影券码可以在鑫仔世界旗下直营影城1：1兑换电影票一张。1张观影券码最多兑换1影票。(本次活动影片)</p>
+					<br />
+					<h2>限制范围</h2>
+					<ul>
+						<li><span>1、</span>满场时及特殊场次或时段（首映式、见面会、平安夜、圣诞节、VIP厅、巨幕厅）谢绝使用。</li>
+						<li><span>2、</span>观影券码不能与影城其他优惠同时使用,一经出售,恕不退款,请谨慎购买！</li>
+						<li><span>3、</span>观影券码不得兑换现金，不找零，不得转卖。</li>
+					</ul>
+					<br />
+					<h2>时间范围</h2>
+					<p>观影券码需在活动期内尽快兑换使用，过期作废。</p>
+					<br />
+					<h2>可选院线</h2>
+					<p>可选院线 线下院线一览(查看院线信息)请以鑫仔影城APP展示影城信息为准。</p>
+					<p>如对观影券码限制范围有疑问，请拨打028-68723788咨询客服。</p>
+					<p>如对观影券码使用有任何疑问，请咨询影城值班经理。</p>
+				</div>
+				<h3><em></em>兑换流程</h3>
+				<div class="process">
+					<ul>
+						<li>
+							<span>1</span>
+							<p class="col">扫描下方二维码下载鑫仔院线官方APP；</p>
+							<img src="images/code_app.jpg" class="code_app" />
+						</li>
+						<li>
+							<span>2</span>
+							<p>进行手机绑定注册（若已注册直接登录即可）；</p>
+						</li>
+						<li>
+							<span>3</span>
+							<p>选择观影影城，观看影片及场次；</p>
+						</li>
+						<li>
+							<span>4</span>
+							<p>在线选座，点击确认选座；</p>
+						</li>
+						<li>
+							<span>5</span>
+							<p class="col">在确认订单页面，点击优惠券，输入所购券码；</p>
+						</li>
+						<li>
+							<span>6</span>
+							<p>完成选座，等待观影。</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- buy_vip -->
+	<div class="buy_vip">
+		<div class="box_justify buy_num">
+			<p class="tip"></p>
+			<div class="cf calculator">
+				<span class="f_left reduce"></span>
+				<input type="number" class="f_left" value="1" />
+				<span class="f_left plus"></span>
+			</div>
+		</div>
+		<div class="box_justify buy_btn">
+			<div class="text">小计：<span></span></div>
+			<a href="javascript:void(0);">购买</a>
+		</div>
+	</div>
+
+	<!-- 弹出框：点卷不足 -->
+	<div class="prompt" id="prompt_insufficient">
+		<a href="javascript:void(0);" class="close"></a>
+		<div class="text">
+			<p>您的鑫仔点券余额不足，</p>
+			<p>可点击去充值</p>
+		</div>
+		<p class="box_justify btns">
+			<a href="javascript:void(0);" class="cancel">不，谢谢</a>
+			<a href="https://pay.wanmei.com/new/newpay.do?op=prepay&gametype=93" class="recharge">充值</a>
+		</p>
+	</div>
+
+	<!-- 弹出框：查看院线信息 -->
+	<div class="prompt" id="prompt_cinema">
+		<a href="javascript:void(0);" class="close"></a>
+		<div class="cinema-city" data-toggle="distpicker">
+		    <select class="cinema_province" data-province="----选择省----"></select>
+		    <select class="cinema_city" data-city="----选择市----"></select>
+		    <select class="cinema_area" data-district="----选择区----"></select>
+		</div>
+		<div class="cinema-items">
+		    <ul>
+		        
+		    </ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/jq_183.js"></script>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/wm.js" top="0" bottom="0"></script>
+	<script type="text/javascript" src="https://static.games.wanmei.com/public/js/swiper-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+	<script type="text/javascript" src="http://vip.wanmei.com/life/js/city.js"></script>
+	<script type="text/javascript" src="http://vip.wanmei.com/life/js/distpicker.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			function _preventDefault(e) { e.preventDefault(); }
+		    //弹出框
+			function prompt_show(ele){
+				$('<div class="prompt_bg"></div>').appendTo($("body"));
+				$(ele).fadeIn();
+			}
+			//关闭弹出框
+			function prompt_hide(ele){
+				$('.prompt_bg').remove();
+				$(ele).fadeOut();
+			}
+
+			/*
+				影城列表功能
+			*/
+
+			function GetCinemaAddress(options){
+			    var opts = $.extend({
+			        province:null,//省
+			        city:null,//市
+			        area:null,//地区
+			        cityList:null//影院列表
+			    },options);
+			    this.province = opts.province;
+			    this.city = opts.city;
+			    this.area = opts.area;
+			    this.cityList = opts.cityList["city"];
+			    this.arrList = [];
+			    this.str = '';
+			}
+			GetCinemaAddress.prototype = {
+			    //初始化
+			    init:function(){
+			        var _this = this;
+			        if(_this.area){
+			            _this.getAreaCinemaList();
+			        }else if(_this.city){
+			            _this.getCityCinemaList();
+			        }else if(_this.province){
+			             _this.getProvinceCinemaList();
+			        }else{
+			            //默认显示全国的影城
+			            _this.getCountryCinemaList();
+			        }
+			        _this.str = '';
+			        _this.randerCinemaList();
+			    },
+			    //获取省级的影院列表
+			    getProvinceCinemaList:function(){
+			        var _this = this;
+			        _this.arrList = [];
+			        for(var i = 0; i < _this.cityList.length; i++){
+			            if(_this.cityList[i].cinemaProvince == _this.province){
+			                _this.arrList.push(_this.cityList[i]);
+			            }
+			        }
+			    },
+			    //获取市级的影院列表
+			    getCityCinemaList:function(){
+			        var _this = this;
+			        _this.arrList = [];
+			        for(var i = 0; i < _this.cityList.length; i++){
+			            if(_this.cityList[i].cinemaCity == _this.city){
+			                _this.arrList.push(_this.cityList[i]);
+			            }
+			        }
+			    },
+			    //获取区级的影院列表
+			    getAreaCinemaList:function(){
+			        var _this = this;
+			        _this.arrList = [];
+			        for(var i = 0; i < _this.cityList.length; i++){
+			            if(_this.cityList[i].cinemaArea == _this.area){
+			                _this.arrList.push(_this.cityList[i]);
+			            }
+			        }
+			    },
+			    //获取全国的影院列表
+			    getCountryCinemaList:function(){
+			        var _this = this;
+			        _this.arrList = [];
+			        for(var i = 0; i < _this.cityList.length; i++){
+			            _this.arrList.push(_this.cityList[i]);
+			        }
+			    },
+			    //渲染影院列表
+			    randerCinemaList:function(){
+			        var _this = this;
+			        if(!(_this.arrList == '')){
+			            for(var j = 0; j < _this.arrList.length; j++){
+			                //console.log(_this.arrList[j]);
+			                _this.str += '<li><p class="name">'+_this.arrList[j].cinemaName+'</p><p class="position">'+_this.arrList[j].cinemaAddress+'</p><p class="tel">'+_this.arrList[j].cinemaTel+'</p></li>'
+			            }
+			            $('.cinema-items ul').html(_this.str);
+			        }else{
+			            $('.cinema-items ul').html('<li class="noCinema">未获取到影院信息！</li>');
+			        }
+			    }
+			}
+			$.getCinemaAddress = function(options){
+			    var opts = $.extend({
+			        province:null,//省
+			        city:null,//市
+			        area:null,//地区
+			        cityList:null,//影院列表
+			    },options);
+			    new GetCinemaAddress({
+			        province : opts.province,
+			        city : opts.city,
+			        area : opts.area,
+			        cityList : opts.cityList
+			    }).init();
+			};
+
+		    var cityArr = [];
+		    $.getCinemaAddress({cityList:cityList});
+			$('.cinema-city .cinema_province').on('change',function(){
+		        var code = $(this).find("option:selected").attr("data-code");
+		        cityArr = [];
+				cityArr.push(code);
+		        $.getCinemaAddress({
+		            province:cityArr[0],
+		            cityList:cityList
+		        });
+		        
+			});
+		    $('.cinema-city .cinema_city').on('change',function(){
+		        var code = $(this).find("option:selected").attr("data-code");
+				if(cityArr.length == 2){
+					cityArr[1] = code;
+				}else{
+					cityArr.push(code);	
+				}
+				console.log(cityArr);
+		        $.getCinemaAddress({
+					province:cityArr[0],
+		            city:cityArr[1],
+		            cityList:cityList
+		        });
+		    });
+		    $('.cinema-city .cinema_area').on('change',function(){
+		        var code = $(this).find("option:selected").attr("data-code");
+		        $.getCinemaAddress({
+		            province:cityArr[0],
+		            city:cityArr[1],
+		            area:code,
+		            cityList:cityList
+		        });
+		    });	
+
+			//关联折叠
+			$(".sideMenu h3").on('click',function(){
+				if($(this).hasClass('on')){
+					$(this).removeClass('on');
+					$(this).next('div').slideUp();
+				}else{
+					$(this).addClass('on');
+					$(this).next('div').slideDown();
+				}
+			});
+
+			//获得用户vip等级
+			var maxNum = 0;		//可购买数量
+			var realPrice = 0;	//实际成交单价
+			var totalPrice = 0; //总价
+			// var surplusNum = 0;	//剩余券码数量
+			$.ajax({
+				url:baseUrl + "user/rank/get",
+				type:"POST",
+				xhrFields: {
+					withCredentials: true
+				},
+				success:function(data){
+					if(data.code == 0){
+						var vipLevel = data.result
+						var vip = '';
+						switch(vipLevel){
+							case 0:
+								vip = '普通会员';
+								break;
+							case 1:
+								vip = '银卡会员';
+								break;
+							case 2:
+								vip = '金卡会员';
+								break;
+							case 3:
+								vip = '白金卡会员';
+								break;
+							case 4:
+								vip = '终身会员';
+								break;
+						}
+						$('.buy_header h2 span').text(vip);
+
+						//获取价格信息 及 可购买数量
+						$.ajax({
+							url:baseUrl + "activity/priceInfo/get?userId=" + CookieUtil.getSub('cookie','userId'),
+							type:"POST",
+							success:function(data){
+								if(data.code == 0){
+
+									/*
+									//剩余券码数量
+									$.ajax({
+									    url:baseUrl + "/activity/ticket/rest/get",
+									    type:"POST",
+									    success:function(data){
+									    	if(data.code == 0){
+
+									    		surplusNum = data.result;
+
+									    		//用户已购买券码数量
+									    		$.ajax({
+									    		    url:baseUrl + "/activity/ticket/user/get",
+									    		    type:"POST",
+									    		    xhrFields: {
+									    		        withCredentials: true
+									    		    },
+									    		    success:function(data){
+									    		        console.log(data);
+									    		    }
+									    		});
+									    	}else{
+									    		alert(data.message);
+									    	}
+									    }
+									});
+									*/
+
+									maxNum = data.result.limit[vipLevel];
+									$('.buy_vip .buy_num .tip').text('最多可购买'+maxNum+'张');
+
+									totalPrice = realPrice = data.result.price*data.result.discount[vipLevel]/100;
+									$('.buy_header .discount').text(data.result.discount[vipLevel]+'%折扣');
+									$('.buy_header .num').html(realPrice+'点券<span>'+data.result.price+'点券</span>');
+									$('.buy_vip .buy_btn .text span').text(realPrice+'点券');
+									$('.buy_main .tip span').text('您的等级为VIP'+vip+'：可享'+data.result.discount[vipLevel]/100+'折优惠');
+								}else{
+				                    alert(data.message);
+				                }
+							}
+						});
+
+					}else if(data.code == -2){//未登录
+						
+					}else if(data.code == -2){//不是VIP用户
+
+					}
+					
+				}
+			});
+
+			//获得用户可消费点券总数
+			var userSurplus = 0;
+			$.ajax({
+			    url:baseUrl + "/user/coupon/get",
+			    type:"POST",
+			    xhrFields: {
+			        withCredentials: true
+			    },
+			    success:function(data){
+			        if(data.code==0){
+			        	userSurplus = data.result;
+			            alert('您当前的点券余额为：' + userSurplus);
+			        }else if(data.code == -2){//未登录
+			            
+			        }else if(data.code == -3){//不是VIP用户
+			            
+			        }
+			    }
+			});
+
+			//计算器
+			$('.buy_num span').on('click',function(){
+				var num = parseInt($('.buy_num input').val());
+				if($(this).hasClass('reduce')){
+					var result = num-1;
+					if(result > 0){
+						num = result;
+						$('.buy_num input').val(num);
+					}
+				}else if($(this).hasClass('plus')){
+					var result = num+1;
+					if(result <= maxNum){
+						num = result;
+						$('.buy_num input').val(num);
+					}
+				}
+				totalPrice = realPrice*num;
+				$('.buy_vip .buy_btn .text span').text(totalPrice+'点券');
+			});
+			$('.buy_num input').on('blur',function(){
+				var num = parseInt($('.buy_num input').val());
+				if(!num){
+					num = 1;
+					$('.buy_num input').val(num);
+				}
+				$('.buy_vip .buy_btn .text span').text(totalPrice+'点券');
+			});
+			$('.buy_num input').on('keyup',function(){
+				var num = parseInt($('.buy_num input').val());
+				if(isNaN(num)){
+					$('.buy_vip .buy_btn .text span').text('0点券');
+				}else{
+					if(num == 0){
+						num = 1;
+						$('.buy_num input').val(num);
+					}
+					if(num > maxNum){
+						num = maxNum;
+						$('.buy_num input').val(num);
+					}
+					$('.buy_vip .buy_btn .text span').text(totalPrice+'点券');
+				}
+			});
+
+			//购买
+			$('.buy_vip .buy_btn a').on('click',function(){
+				if(!isLogin){
+					login();
+					return false;
+				}else{
+					if(userSurplus < totalPrice){//点券不足
+						prompt_show('#prompt_insufficient');
+					}else{
+						var amount = $('.buy_num input').val();
+			            $.ajax({
+			                // url:baseUrl + "order/create?amount=" + amount + "&userId=" + CookieUtil.getSub('cookie','userId'),// + "&movieId=8",
+			                url:baseUrl + "order/create?amount=" + amount,
+			                type:"POST",
+			                xhrFields: {
+			                    withCredentials: true
+			                },
+			                success:function(data){
+			                    console.log(data)
+			                    if(data.code == 0){
+			                        var result = data.result;
+			                        window.location.href = 'confirm.html?orderId=' + result.id;
+			                    }else if(data.code == -2){
+									login();
+								}else{
+			                        alert(data.message);
+			                    }
+			                }
+			            });
+					}
+				}
+			});
+
+			//关闭弹出框
+			$('.close, .cancel').on('click',function(){
+				prompt_hide('#prompt_insufficient');
+			});
+
+			// 弹出框：查看院线信息
+			$('.see_cinema').on('click',function(){
+				prompt_show('#prompt_cinema');
+			});
+			$('#prompt_cinema .close').on('click',function(){
+				prompt_hide('#prompt_cinema');
+			});
+		});
+	</script>
+</body>
+</html>

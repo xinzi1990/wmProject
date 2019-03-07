@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>鑫仔世界VIP官网</title>
+
+<link rel="stylesheet" type="text/css" href="style/reset.css">
+<link rel="stylesheet" type="text/css" href="style/main.css">
+</head>
+<body>
+<div class="vip_userinfo">
+    <div class="vip_userinfo_box wrap950">
+        <div class="tit">
+            首次填写VIP信息
+        </div>
+        <div class="user-sub">
+            <ul style="padding-left:230px;">
+                <li><label>真实姓名：</label><input type="text" id="vip_truename" placeholder="" /><span id="truenamestatus"></span></li>
+                <li><label>身份证号码：</label><input type="text" name="vipUserInfoRealId" id="vipUserInfoRealId" value=""><span id="idstatus"></span></li>
+				<li><label>手机号码：</label><input type="text" id="vip_fullMobile" name="vip_fullMobile" value="" placeholder="填写注册时填写的手机号"><a style="margin-left:10px; color:#FF0004; float:left; display:none;" id="bindPhone" href="http://passport.wanmei.com/mobilebind/?do=change" target="_blank">绑定手机号</a><span id="phonestatus"></span></li>
+                <li><label>手机验证码：</label><input type="text" id="vip_mobilecode" name="vip_mobilecode"><button id="mcodebtn" onclick="sendmobilecode(this)">获取手机验证码</button><span id="codestatus"></span></li>
+                <li><label>出生日期：</label>
+                    <select name="birthyear" id="vip_birthyear" onchange="reGenerateDays()"></select>年
+                    <select name="birthmonth" id="vip_birthmonth" onchange="reGenerateDays()"></select>月 
+                    <select name="birthday" id="vip_birthday" onchange="checkBirthInfo()"></select>日
+                    <span id="birthstatus" style="float:none;"></span>
+                </li>
+                <li><label>地址：</label>
+                    <div id="vip_address_city" style="display:inline;">
+                        <select id="vip_province" name="province" class="prov" onchange="checkAddressInfo()"><option value="">请选择</option></select>
+                        <select id="vip_city" name="city" class="city" disabled="disabled"></select>
+                    </div>
+                    <input id="vip_address" name="address" type="text" onchange="checkAddressInfo()" style="float:none;">
+                	<span id="addressstatus" style="float:none;"></span>   
+                </li>
+                <li><label>主要使用产品：</label><select id="vipFirstGame" name="maingame" class="input2"></select></li>
+                <li><a id="submitVipUserInfo" class="btn_submit" href="javascript:;">提交</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://www.wanmei.com/public/js/jq_171.js"></script>
+<script type="text/javascript" src="js/jquery.boxy.js"></script>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" src="js/public_top.js"></script>
+<script type="text/javascript" src="js/public_siderbar.js"></script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script type="text/javascript" src="js/tools.js"></script>
+<script type="text/javascript" src="js/cityselect.js"></script>
+<script type="text/javascript" src="js/vip.js"></script>
+<script type="text/javascript" src="js/userinfo.js"></script>
+</body>
+</html>
