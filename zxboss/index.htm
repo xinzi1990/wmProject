@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no">
+<meta name="description" content="《诛仙3》"梦起河阳"10.27缘聚公测！新资料片八大革新，十六大职业再现光彩。保利剧院任贤齐现场领衔《诛仙》全明星之夜，10月20日不见不散！"/>
+<meta name="keywords" content="诛仙3,诛仙,诛仙2官网,诛仙官网,诛仙3官方网站,诛仙3下载,诛仙三,诛仙二,英招,牵机,诛仙前传官网,诛仙世界"/>
+<title>圣诞节最美BOSS袭来 - 《诛仙3》官方网站</title>
+<link rel="stylesheet" type="text/css" href="style/master.css" />
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/touch.js?s"></script>
+<script type="text/javascript" src="js/main.js?s"></script>
+<script type="text/javascript" src="js/loading.js"></script>
+</head>
+
+<body style="overflow:hidden;">
+<div class="loading center" id="loading">
+	<div class="loadBox">
+    	<div class="loadLingImg loadingConversion"></div>
+		<div class="loadLineBox">
+        	<div class="loadLine" id="loadPlay"></div>
+        </div>
+        <div class="loadText"><span id="loadNumber"></span></div>
+    </div>
+</div>
+<div class="startGame" id="startGame">
+	<div class="startGame_img">
+    	<div class="startGameConversion"></div>
+    </div>
+	<div class="startGame_btn" id="startGame_btn"></div>
+</div>
+<div class="startGmae_begin" style="display:none;">
+	<img src="images/count_3.png" class="count" />
+    <div class="phone phoneConversion"></div>
+</div>
+<div id="main" style="display:none;">
+	<div id="time">15</div>
+    <div id="blood"><div id="blood_upper"></div><div class="minBlood">0</div><div class="maxBlood">200</div></div>
+    <div id="man" class="manConversion"></div>
+    <div id="man1" class="man1Conversion"></div>
+    <img src="images/gameover.png" class="gameover" />
+    <img src="images/hit0.png" class="hit" />
+    <img src="images/icon0.png" id="prize" />
+</div>
+<div class="result" id="no" style="display:none;">
+	<div class="no_2" id="no_bg">
+    	<div class="no_txt no_txtConversion"></div>
+		<img src="images/game_btn_3.png" class="btn_more"><img src="images/game_btn_2.png" class="btn_share">
+    </div>
+</div>
+<div class="result" id="yes" style="display:none;">
+	<div class="win_box" id="win_box1" style="display:block;">
+    	<div class="win1_box_txt win1_txtConversion"></div>
+        <div class="winPrizeName">时光之书</div>
+    	<img src="images/game_btn_3.png" class="btn_prize"><img src="images/game_btn_2.png" class="btn_share">
+    </div>
+    <div class="win_box" id="win_box2" style="display:none;">
+    	<div class="win2_box_txt win2_txtConversion"></div>
+    	<img src="images/game_btn_4.png" class="btn_prize"><!--<img src="images/game_btn_2.png" class="btn_share">-->
+    </div>
+</div>
+<div class="get_prize" style="display:none; z-index:111;">
+	<table width="100%" border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>称号</td>
+            <td>EWWFDSFR35G</td>
+            <td>官网兑换</td>
+        </tr>
+        <tr>
+            <td>礼包</td>
+            <td>未获得</td>
+            <td>官网兑换</td>
+        </tr>
+        <tr>
+            <td>点卡</td>
+            <td>未获得</td>
+            <td>官网兑换</td>
+        </tr>
+        <tr>
+            <td>周边</td>
+            <td>未获得</td>
+            <td>截图发送至<br>公众账号</td>
+        </tr>
+	</table>
+    <div class="tips">*礼品周边需要将本页截图，发送到公众账号并写上<br>姓名+地址+电话，活动结束后发放</div>
+    <img src="images/erweima.jpg" alt="" class="erweima" />
+</div>
+<img src="images/share.jpg" id="share">
+<script src="http://www.wanmei.com/public/js/stat.js"></script>
+<script src="http://www.wanmei.com/public/js/weixin.js?aid=32"></script>
+<script>
+	
+	
+	wx.ready(function(){
+		
+		wx.onMenuShareAppMessage({
+			title: '圣诞夜抢劫美女BOSS，我只抢到了',
+			desc: '《诛仙3》年底大回馈，抢劫最美BOSS赢奖品啦！',
+			link: window.location.href,
+			imgUrl: 'http://event51.wanmei.com/zhuxian/201512/boss/images/share_img.jpg',
+			trigger: function (res) {
+				// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+				//alert('用户点击发送给朋友');
+			},
+			success: function (res) {
+				//
+			},
+			cancel: function (res) {
+				//alert('已取消');
+			},
+			fail: function (res) {
+				alert(JSON.stringify(res));
+			}
+		});
+		
+		wx.onMenuShareTimeline({
+			title: '圣诞夜抢劫美女BOSS，我只抢到了',
+			link: window.location.href,
+			imgUrl: 'http://event51.wanmei.com/zhuxian/201512/boss/images/share_img.jpg',
+			trigger: function (res) {
+				// 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+				//alert('用户点击分享到朋友圈');
+			},
+			success: function (res) {
+				//
+			},
+			cancel: function (res) {
+				//alert('已取消');
+			},
+			fail: function (res) {
+				alert(JSON.stringify(res));
+			}
+		});
+	});
+	
+	
+</script>
+</body>
+</html>
